@@ -1,0 +1,4233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>من سيربح المليون التعليمية | تغذية المراهقين</title>
+
+  <!-- Google Fonts for Executive Arabic & English + Prestigious Certificate -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;500;600;700;800;900&family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================================
+       1. DESIGN TOKENS — WARM EDITORIAL DAY (DEFAULT) & CARBON NIGHT MODES
+       ========================================================================= */
+    :root,
+    [data-theme="light"] {
+      --bg-canvas: #f7f5f0;
+      --bg-ambient-1: rgba(15, 118, 110, 0.08);
+      --bg-ambient-2: rgba(180, 83, 9, 0.07);
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #faf9f6;
+      --bg-surface-soft: #f0ede6;
+      --bg-header: rgba(250, 249, 246, 0.90);
+      --bg-input: #ffffff;
+
+      --text-primary: #1c1917;
+      --text-secondary: #44403c;
+      --text-muted: #78716c;
+
+      --border-subtle: #e7e2d8;
+      --border-strong: #d6cfc2;
+
+      --brand-primary: #0f766e;
+      --brand-primary-hover: #115e59;
+      --brand-indigo: #047857;
+      --brand-soft: rgba(15, 118, 110, 0.09);
+      --brand-border: rgba(15, 118, 110, 0.26);
+      --brand-on-dark: #0f766e;
+
+      --gold-main: #b45309;
+      --gold-bright: #d97706;
+      --gold-soft: rgba(217, 119, 6, 0.11);
+      --gold-border: rgba(217, 119, 6, 0.35);
+
+      --success-main: #059669;
+      --success-soft: rgba(5, 150, 105, 0.11);
+      --danger-main: #dc2626;
+      --danger-soft: rgba(220, 38, 38, 0.10);
+
+      --shadow-card: 0 16px 38px -10px rgba(28, 25, 23, 0.08), 0 4px 12px -2px rgba(28, 25, 23, 0.04);
+      --shadow-soft: 0 6px 18px -4px rgba(28, 25, 23, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --bg-canvas: #141413;
+      --bg-ambient-1: rgba(20, 184, 166, 0.10);
+      --bg-ambient-2: rgba(217, 119, 6, 0.08);
+      --bg-surface: #1e1d1b;
+      --bg-surface-elevated: #262522;
+      --bg-surface-soft: rgba(44, 42, 38, 0.75);
+      --bg-header: rgba(20, 20, 19, 0.88);
+      --bg-input: #181715;
+
+      --text-primary: #fafaf9;
+      --text-secondary: #d6d3d1;
+      --text-muted: #a8a29e;
+
+      --border-subtle: rgba(231, 229, 228, 0.12);
+      --border-strong: rgba(231, 229, 228, 0.22);
+
+      --brand-primary: #14b8a6;
+      --brand-primary-hover: #0d9488;
+      --brand-indigo: #10b981;
+      --brand-soft: rgba(20, 184, 166, 0.14);
+      --brand-border: rgba(20, 184, 166, 0.30);
+      --brand-on-dark: #5eead4;
+
+      --gold-main: #f59e0b;
+      --gold-bright: #fbbf24;
+      --gold-soft: rgba(245, 158, 11, 0.14);
+      --gold-border: rgba(245, 158, 11, 0.38);
+
+      --success-main: #10b981;
+      --success-soft: rgba(16, 185, 129, 0.15);
+      --danger-main: #ef4444;
+      --danger-soft: rgba(239, 68, 68, 0.15);
+
+      --shadow-card: 0 18px 42px -12px rgba(0, 0, 0, 0.62);
+      --shadow-soft: 0 8px 24px -6px rgba(0, 0, 0, 0.42);
+    }
+
+    /* =========================================================================
+       2. RESET & FLUID RESPONSIVE TYPOGRAPHY
+       ========================================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background-color: var(--bg-canvas);
+      background-image:
+        radial-gradient(circle at 12% 14%, var(--bg-ambient-1) 0%, transparent 45%),
+        radial-gradient(circle at 88% 18%, var(--bg-ambient-2) 0%, transparent 45%);
+      color: var(--text-primary);
+      font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    html[lang="en"] body {
+      font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    }
+
+    button, input {
+      font-family: inherit;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 120;
+    }
+
+    /* =========================================================================
+       3. LAYOUT SHELL & RESPONSIVE HEADER
+       ========================================================================= */
+    .app-shell {
+      position: relative;
+      z-index: 1;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    @media (min-width: 640px) {
+      .container { padding: 0 24px; }
+    }
+
+    .top-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--bg-header);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      min-width: 0;
+    }
+
+    .brand-emblem {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0f766e, #047857);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: 0 6px 16px rgba(15, 118, 110, 0.28);
+      flex-shrink: 0;
+    }
+
+    .brand-titles {
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: clamp(0.95rem, 2.2vw, 1.12rem);
+      color: var(--text-primary);
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-subtitle {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.2;
+      display: none;
+    }
+    @media (min-width: 560px) {
+      .brand-subtitle { display: block; }
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .icon-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 38px;
+      padding: 0 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-soft);
+      white-space: nowrap;
+    }
+
+    .icon-pill-btn:hover {
+      border-color: var(--brand-primary);
+      transform: translateY(-1px);
+    }
+
+    .icon-pill-btn .btn-label-desktop {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .icon-pill-btn .btn-label-desktop { display: inline; }
+    }
+
+    /* Live Player Pill in Navbar during Quiz */
+    .live-status-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      border: 1px solid var(--brand-border);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* =========================================================================
+       UIVERSE.IO DAY/NIGHT SWITCH + MATCHING SLIDING LANGUAGE SWITCH
+       From Uiverse.io by rishichawda - https://uiverse.io/rishichawda/fluffy-robin-48
+       MIT License, Copyright (c) I had seen the design concept somewhere and Implemented it on my website (converted the image to svg, added transitions). this was a couple of years ago so i'm not able to find the dribbble or figma link (or wherever i found it). , rishichawda (Rishi Kumar Chawda)
+       ========================================================================= */
+    #uiv-theme-toggle-button,
+    #uiv-lang-toggle-button {
+      font-size: 10px;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      width: 6.8em;
+      cursor: pointer;
+      user-select: none;
+      flex-shrink: 0;
+      direction: ltr;
+    }
+
+    #uiv-theme-toggle-button svg,
+    #uiv-lang-toggle-button svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    #uiv-theme-toggle,
+    #uiv-lang-toggle {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+
+    #uiv-container,
+    #uiv-patches,
+    #uiv-stars,
+    #uiv-button,
+    #uiv-sun,
+    #uiv-moon,
+    #uiv-cloud,
+    #uiv-lang-track,
+    #uiv-lang-knob,
+    #uiv-lang-ar-knob,
+    #uiv-lang-en-knob,
+    #uiv-lang-bg-en,
+    #uiv-lang-bg-ar {
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.25s;
+    }
+
+    #uiv-theme-toggle:checked + svg #uiv-container {
+      fill: #2b4360;
+    }
+
+    #uiv-theme-toggle:checked + svg #uiv-button {
+      transform: translate(28px, 2.333px);
+    }
+
+    #uiv-sun {
+      opacity: 1;
+    }
+
+    #uiv-theme-toggle:checked + svg #uiv-sun {
+      opacity: 0;
+    }
+
+    #uiv-moon {
+      opacity: 0;
+    }
+
+    #uiv-theme-toggle:checked + svg #uiv-moon {
+      opacity: 1;
+    }
+
+    #uiv-cloud {
+      opacity: 1;
+    }
+
+    #uiv-theme-toggle:checked + svg #uiv-cloud {
+      opacity: 0;
+    }
+
+    #uiv-stars {
+      opacity: 0;
+    }
+
+    #uiv-theme-toggle:checked + svg #uiv-stars {
+      opacity: 1;
+    }
+
+    /* Matching Sliding Language Switch (ع <-> EN) */
+    #uiv-lang-toggle:checked + svg #uiv-lang-track {
+      fill: #b45309;
+    }
+
+    #uiv-lang-toggle:checked + svg #uiv-lang-knob {
+      transform: translate(28px, 2.333px);
+    }
+
+    #uiv-lang-ar-knob { opacity: 1; }
+    #uiv-lang-toggle:checked + svg #uiv-lang-ar-knob { opacity: 0; }
+
+    #uiv-lang-en-knob { opacity: 0; }
+    #uiv-lang-toggle:checked + svg #uiv-lang-en-knob { opacity: 1; }
+
+    #uiv-lang-bg-en { opacity: 0.92; }
+    #uiv-lang-toggle:checked + svg #uiv-lang-bg-en { opacity: 0; }
+
+    #uiv-lang-bg-ar { opacity: 0; }
+    #uiv-lang-toggle:checked + svg #uiv-lang-bg-ar { opacity: 0.92; }
+
+    /* =========================================================================
+       4. CARDS, BUTTONS & ANIMATIONS
+       ========================================================================= */
+    .main-stage {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 24px 0 36px;
+    }
+
+    .surface-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 22px;
+      box-shadow: var(--shadow-card);
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes optionStaggerIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes shakeField {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .anim-enter {
+      animation: fadeSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .shake-error {
+      animation: shakeField 0.42s ease;
+      border-color: var(--danger-main) !important;
+      box-shadow: 0 0 0 3px var(--danger-soft) !important;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 12px 26px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #0f766e 0%, #065f46 100%);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 24px -4px rgba(15, 118, 110, 0.38);
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, filter 0.2s ease;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -4px rgba(15, 118, 110, 0.50);
+      filter: brightness(1.06);
+    }
+
+    .btn-primary:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 12px 24px;
+      border-radius: 14px;
+      border: 1px solid rgba(251, 191, 36, 0.5);
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      color: #ffffff;
+      font-size: 0.96rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 24px -4px rgba(180, 83, 9, 0.38);
+      transition: all 0.22s ease;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      border-color: var(--brand-primary);
+      color: var(--brand-primary);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* =========================================================================
+       5. INTRO SCREEN — EXECUTIVE ACADEMIC PORTAL
+       ========================================================================= */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    @media (min-width: 960px) {
+      .intro-grid {
+        grid-template-columns: 1.35fr 1fr;
+      }
+    }
+
+    .hero-card {
+      padding: clamp(22px, 4vw, 40px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .uni-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      border: 1px solid var(--brand-border);
+      color: var(--brand-primary);
+      font-size: clamp(0.76rem, 1.8vw, 0.86rem);
+      font-weight: 700;
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    [data-theme="dark"] .uni-badge {
+      color: var(--brand-on-dark);
+    }
+
+    .hero-heading {
+      margin: 14px 0 10px;
+      font-size: clamp(1.75rem, 4.2vw, 2.75rem);
+      font-weight: 900;
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-heading .accent-line {
+      display: block;
+      background: linear-gradient(90deg, var(--brand-primary), var(--brand-indigo), var(--gold-bright));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 4px;
+    }
+
+    .hero-desc {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: clamp(0.92rem, 2vw, 1.04rem);
+      line-height: 1.75;
+    }
+
+    .supervisor-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .supervisor-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .supervisor-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      flex-shrink: 0;
+    }
+
+    .feature-pills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: var(--bg-surface-soft);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    /* Registration / Start Card */
+    .start-card {
+      padding: clamp(22px, 4vw, 36px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .required-star {
+      color: var(--danger-main);
+      margin: 0 3px;
+    }
+
+    .text-input {
+      width: 100%;
+      height: 52px;
+      padding: 0 16px;
+      border-radius: 14px;
+      border: 1.5px solid var(--border-strong);
+      background: var(--bg-input);
+      color: var(--text-primary);
+      font-size: 0.98rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .text-input:focus {
+      outline: none;
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 4px var(--brand-soft);
+    }
+
+    .validation-msg {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--danger-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quick-prefs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* =========================================================================
+       6. QUIZ STAGE — RESPONSIVE ARENA & PRIZE LADDER
+       ========================================================================= */
+    .quiz-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (min-width: 1024px) {
+      .quiz-layout {
+        grid-template-columns: minmax(0, 1fr) 320px;
+      }
+    }
+
+    .quiz-main-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    /* Top Control Bar: Lifelines + Mandatory Countdown Timer */
+    .controls-bar {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .lifelines-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      flex: 1;
+      min-width: min(100%, 280px);
+    }
+
+    .lifeline-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 9px 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.22s ease;
+      min-height: 58px;
+    }
+
+    .lifeline-btn:hover:not(:disabled) {
+      border-color: var(--brand-primary);
+      background: var(--brand-soft);
+      transform: translateY(-2px);
+    }
+
+    .lifeline-btn:disabled {
+      opacity: 0.32;
+      cursor: not-allowed;
+      filter: grayscale(0.9);
+    }
+
+    .lifeline-icon {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .lifeline-label {
+      font-size: clamp(0.66rem, 1.5vw, 0.76rem);
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.15;
+    }
+
+    .timer-walk-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-inline-start: auto;
+    }
+
+    .timer-ring-box {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .timer-svg {
+      width: 56px;
+      height: 56px;
+      transform: rotate(-90deg);
+    }
+
+    .timer-number {
+      position: absolute;
+      font-weight: 800;
+      font-size: 0.98rem;
+      color: var(--text-primary);
+    }
+
+    .timer-urgent {
+      color: var(--danger-main) !important;
+      animation: gentleFloat 0.45s ease infinite;
+    }
+
+    /* Question Card */
+    .question-card {
+      padding: clamp(20px, 3.5vw, 34px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .q-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .badge-step {
+      background: var(--brand-soft);
+      color: var(--brand-primary);
+    }
+    [data-theme="dark"] .badge-step { color: var(--brand-on-dark); }
+
+    .badge-cat {
+      background: var(--bg-surface-soft);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .badge-points {
+      background: var(--gold-soft);
+      color: var(--gold-bright);
+      border: 1px solid var(--gold-border);
+      font-weight: 800;
+    }
+
+    .question-title {
+      margin: 0;
+      font-size: clamp(1.15rem, 2.6vw, 1.52rem);
+      font-weight: 800;
+      line-height: 1.55;
+      color: var(--text-primary);
+      min-height: 3.1em;
+      display: flex;
+      align-items: center;
+    }
+
+    /* 2x2 Options Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 680px) {
+      .options-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .option-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      min-height: 64px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1.5px solid var(--border-strong);
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      text-align: start;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      opacity: 0;
+      animation: optionStaggerIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .option-card:hover:not(:disabled):not(.eliminated) {
+      border-color: var(--brand-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .option-letter {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--brand-soft);
+      color: var(--brand-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.98rem;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    [data-theme="dark"] .option-letter { color: var(--brand-on-dark); }
+
+    .option-text {
+      font-size: clamp(0.9rem, 1.9vw, 1rem);
+      font-weight: 600;
+      line-height: 1.45;
+      flex: 1;
+      word-break: break-word;
+    }
+
+    /* Option States */
+    .option-card.locked {
+      border-color: var(--gold-bright) !important;
+      background: var(--gold-soft) !important;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.22);
+    }
+    .option-card.locked .option-letter {
+      background: var(--gold-bright);
+      color: #0f172a;
+    }
+
+    .option-card.correct {
+      border-color: var(--success-main) !important;
+      background: var(--success-soft) !important;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.22);
+    }
+    .option-card.correct .option-letter {
+      background: var(--success-main);
+      color: #ffffff;
+    }
+
+    .option-card.wrong {
+      border-color: var(--danger-main) !important;
+      background: var(--danger-soft) !important;
+      animation: shakeField 0.4s ease;
+    }
+    .option-card.wrong .option-letter {
+      background: var(--danger-main);
+      color: #ffffff;
+    }
+
+    .option-card.eliminated {
+      opacity: 0.22 !important;
+      pointer-events: none !important;
+      border-style: dashed;
+    }
+
+    /* Confirm Bar & Educational Feedback */
+    .confirm-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+    }
+
+    .feedback-box {
+      padding: 18px 20px;
+      border-radius: 16px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface-elevated);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feedback-box.is-correct {
+      border-color: var(--success-main);
+      background: var(--success-soft);
+    }
+
+    .feedback-box.is-wrong {
+      border-color: var(--danger-main);
+      background: var(--danger-soft);
+    }
+
+    /* Prize Ladder Sidebar (Collapsible on Mobile, Full Tower on Desktop) */
+    .ladder-card {
+      padding: 18px;
+    }
+
+    .ladder-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 12px;
+    }
+
+    .ladder-list {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 4px;
+    }
+
+    .ladder-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 12px;
+      border-radius: 9px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      transition: all 0.22s ease;
+    }
+
+    .ladder-row.safe-station {
+      color: var(--gold-bright);
+      background: var(--gold-soft);
+    }
+
+    .ladder-row.passed {
+      color: var(--success-main);
+    }
+
+    .ladder-row.current {
+      background: linear-gradient(135deg, #0f766e, #065f46);
+      color: #ffffff !important;
+      font-weight: 800;
+      box-shadow: 0 6px 16px rgba(15, 118, 110, 0.30);
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 1023px) {
+      .ladder-list.collapsed-mobile .ladder-row:not(.current):not(.safe-station):not(:last-child) {
+        display: none;
+      }
+    }
+
+    /* =========================================================================
+       7. PRESTIGIOUS OFFICIAL UNIVERSITY CERTIFICATE (SCREEN + PRINT + HD PNG)
+       ========================================================================= */
+    .result-summary-card {
+      padding: clamp(24px, 4vw, 40px);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 820px;
+      margin: 22px auto;
+    }
+    @media (min-width: 680px) {
+      .kpi-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+
+    .kpi-box {
+      padding: 16px 12px;
+      border-radius: 16px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .kpi-val {
+      font-size: clamp(1.2rem, 2.6vw, 1.65rem);
+      font-weight: 900;
+      color: var(--brand-primary);
+      margin-top: 4px;
+    }
+    [data-theme="dark"] .kpi-val { color: var(--brand-on-dark); }
+
+    /* Luxury Parchment & Royal Gold Certificate Wrapper */
+    .certificate-showcase-wrapper {
+      max-width: 960px;
+      margin: 0 auto 28px;
+    }
+
+    .luxury-certificate {
+      position: relative;
+      background: linear-gradient(135deg, #fffdf7 0%, #fcf8ec 50%, #f7f0dc 100%);
+      color: #1e293b;
+      border-radius: 16px;
+      padding: clamp(14px, 2.8vw, 28px);
+      box-shadow: 0 24px 60px rgba(2, 6, 23, 0.38);
+      overflow: hidden;
+    }
+
+    .cert-outer-frame {
+      border: 3px solid #b48327;
+      padding: clamp(6px, 1.2vw, 10px);
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .cert-inner-frame {
+      border: 1.5px solid #d4af37;
+      padding: clamp(20px, 4vw, 44px) clamp(16px, 4vw, 48px);
+      border-radius: 6px;
+      position: relative;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.06) 0%, transparent 65%);
+      text-align: center;
+    }
+
+    /* Ornamental Gold Corners */
+    .cert-corner {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      border-color: #9a6f18;
+      border-style: solid;
+      pointer-events: none;
+    }
+    .cert-corner.tl { top: 10px; left: 10px; border-width: 3px 0 0 3px; }
+    .cert-corner.tr { top: 10px; right: 10px; border-width: 3px 3px 0 0; }
+    .cert-corner.bl { bottom: 10px; left: 10px; border-width: 0 0 3px 3px; }
+    .cert-corner.br { bottom: 10px; right: 10px; border-width: 0 3px 3px 0; }
+
+    .cert-top-institution {
+      font-size: clamp(0.78rem, 1.8vw, 0.96rem);
+      font-weight: 800;
+      color: #115e59;
+      letter-spacing: 0.03em;
+    }
+
+    .cert-main-heading {
+      font-family: 'Amiri', 'Playfair Display', serif;
+      font-size: clamp(1.65rem, 4.2vw, 2.65rem);
+      font-weight: 700;
+      color: #926510;
+      margin: 10px 0 4px;
+      line-height: 1.25;
+    }
+
+    html[lang="en"] .cert-main-heading {
+      font-family: 'Cinzel', 'Playfair Display', serif;
+      letter-spacing: 0.06em;
+    }
+
+    .cert-sub-ribbon {
+      display: inline-block;
+      padding: 4px 18px;
+      border-radius: 999px;
+      background: #115e59;
+      color: #fef3c7;
+      font-size: clamp(0.72rem, 1.6vw, 0.84rem);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .cert-presented-to {
+      font-size: clamp(0.85rem, 1.8vw, 1rem);
+      color: #475569;
+      margin: 6px 0;
+    }
+
+    .cert-recipient-name {
+      font-family: 'Amiri', 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4.5vw, 2.85rem);
+      font-weight: 700;
+      color: #0f172a;
+      margin: 6px auto 12px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(180, 131, 39, 0.45);
+      max-width: 580px;
+      line-height: 1.3;
+    }
+
+    .cert-citation-body {
+      font-size: clamp(0.86rem, 1.8vw, 1.02rem);
+      color: #334155;
+      max-width: 660px;
+      margin: 0 auto 22px;
+      line-height: 1.75;
+    }
+
+    .cert-badges-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .cert-stat-pill {
+      padding: 7px 16px;
+      border-radius: 8px;
+      background: rgba(15, 118, 110, 0.07);
+      border: 1px solid rgba(180, 131, 39, 0.4);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #115e59;
+    }
+
+    .cert-footer-signatures {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 14px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(180, 131, 39, 0.32);
+    }
+
+    @media (max-width: 600px) {
+      .cert-footer-signatures {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+
+    .cert-sig-col {
+      text-align: center;
+    }
+
+    .cert-sig-label {
+      font-size: 0.76rem;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+
+    .cert-sig-value {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .cert-sig-sub {
+      font-size: 0.74rem;
+      color: #926510;
+      font-weight: 700;
+    }
+
+    /* Golden Seal SVG */
+    .gold-seal-svg {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto;
+      filter: drop-shadow(0 6px 12px rgba(146, 101, 16, 0.32));
+    }
+
+    /* =========================================================================
+       8. MODALS & FOOTER
+       ========================================================================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(2, 6, 23, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-panel {
+      width: 100%;
+      max-width: 680px;
+      max-height: 88dvh;
+      overflow-y: auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 22px;
+      padding: clamp(20px, 3.5vw, 32px);
+      box-shadow: var(--shadow-card);
+      animation: fadeSlideUp 0.28s ease forwards;
+    }
+
+    .modal-panel.wide {
+      max-width: 920px;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 18px;
+    }
+
+    .students-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 10px;
+    }
+
+    .student-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .student-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--brand-soft);
+      color: var(--brand-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    [data-theme="dark"] .student-num { color: var(--brand-on-dark); }
+
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 16px 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Print Certificate cleanly on A4 Landscape */
+    @media print {
+      body * { visibility: hidden; }
+      #certificate-print-root, #certificate-print-root * { visibility: visible; }
+      #certificate-print-root {
+        position: fixed;
+        inset: 0;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff !important;
+        padding: 12px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .luxury-certificate {
+        box-shadow: none !important;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="app-shell">
+    <!-- ==================== TOP EXECUTIVE NAVBAR ==================== -->
+    <header class="top-navbar">
+      <div class="container navbar-inner">
+        <!-- Brand -->
+        <div class="brand-group" onclick="App.goHome()">
+          <div class="brand-emblem">🏆</div>
+          <div class="brand-titles">
+            <div class="brand-title" id="nav-title">من سيربح المليون التعليمية</div>
+            <div class="brand-subtitle" id="nav-subtitle">تغذية المراهقين • كلية التربية النوعية - جامعة عين شمس</div>
+          </div>
+        </div>
+
+        <!-- Live Player Status during Quiz -->
+        <div id="nav-live-pill" class="live-status-pill hidden">
+          <span id="nav-player-name"></span>
+          <span>•</span>
+          <span id="nav-player-score" style="color: var(--gold-bright);">0</span>
+        </div>
+
+        <!-- Controls: Study, Team, Language, Theme, Music -->
+        <div class="nav-actions">
+          <button type="button" class="icon-pill-btn" onclick="App.openStudyModal()">
+            <span>📚</span>
+            <span class="btn-label-desktop" id="nav-btn-study">المرجع العلمي</span>
+          </button>
+
+          <button type="button" class="icon-pill-btn" onclick="App.toggleModal('team-modal', true)">
+            <span>👩‍🎓</span>
+            <span class="btn-label-desktop" id="nav-btn-team">فريق العمل</span>
+          </button>
+
+          <!-- Matching Animated Sliding Language Switch (ع <-> EN) -->
+          <label id="uiv-lang-toggle-button" title="تغيير اللغة / Switch Language">
+            <input type="checkbox" id="uiv-lang-toggle" onchange="App.toggleLanguage()">
+            <svg viewBox="0 0 69.667 44" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="uiv-f-lang" x="-15%" y="-15%" width="130%" height="140%">
+                  <feDropShadow dx="0" dy="1.2" stdDeviation="1.4" flood-color="#000" flood-opacity="0.22"/>
+                </filter>
+              </defs>
+              <g transform="translate(3.5 3.5)">
+                <rect id="uiv-lang-track" fill="#0f766e" rx="17.5" height="35" width="60.667" filter="url(#uiv-f-lang)"></rect>
+
+                <!-- Inactive Track Labels -->
+                <text id="uiv-lang-bg-en" x="44" y="22.5" text-anchor="middle" fill="#e6fffa" font-size="11" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">EN</text>
+                <text id="uiv-lang-bg-ar" x="17" y="23" text-anchor="middle" fill="#fef3c7" font-size="13.5" font-weight="900" font-family="Cairo, sans-serif">ع</text>
+
+                <!-- Sliding Knob -->
+                <g transform="translate(2.333 2.333)" id="uiv-lang-knob">
+                  <circle fill="#ffffff" r="15.167" cy="15.167" cx="15.167" filter="url(#uiv-f-lang)"></circle>
+                  <g id="uiv-lang-ar-knob">
+                    <circle fill="rgba(15, 118, 110, 0.12)" r="11.5" cy="15.167" cx="15.167"></circle>
+                    <text x="15.167" y="20.2" text-anchor="middle" fill="#0f766e" font-size="14.5" font-weight="900" font-family="Cairo, sans-serif">ع</text>
+                  </g>
+                  <g id="uiv-lang-en-knob">
+                    <circle fill="rgba(180, 83, 9, 0.12)" r="11.5" cy="15.167" cx="15.167"></circle>
+                    <text x="15.167" y="19.2" text-anchor="middle" fill="#b45309" font-size="11" font-weight="900" font-family="Plus Jakarta Sans, sans-serif">EN</text>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </label>
+
+          <!-- From Uiverse.io by rishichawda - https://uiverse.io/rishichawda/fluffy-robin-48
+               MIT License, Copyright (c) I had seen the design concept somewhere and Implemented it on my website (converted the image to svg, added transitions). this was a couple of years ago so i'm not able to find the dribbble or figma link (or wherever i found it). , rishichawda (Rishi Kumar Chawda) -->
+          <label id="uiv-theme-toggle-button" title="الوضع النهاري / الليلي — Day / Night Mode">
+            <input type="checkbox" id="uiv-theme-toggle" onchange="App.toggleTheme()">
+            <svg viewBox="0 0 69.667 44" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="uiv-f-container" x="-12%" y="-12%" width="124%" height="132%">
+                  <feDropShadow dx="0" dy="1.2" stdDeviation="1.4" flood-color="#000" flood-opacity="0.20"/>
+                </filter>
+                <filter id="uiv-f-knob" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="1.2" stdDeviation="1.5" flood-color="#000" flood-opacity="0.22"/>
+                </filter>
+              </defs>
+              <g transform="translate(3.5 3.5)" data-name="Component 15 – 1" id="uiv-Component_15_1">
+                <g filter="url(#uiv-f-container)" transform="matrix(1, 0, 0, 1, -3.5, -3.5)">
+                  <rect fill="#83cbd8" transform="translate(3.5 3.5)" rx="17.5" height="35" width="60.667" data-name="container" id="uiv-container"></rect>
+                </g>
+
+                <g transform="translate(2.333 2.333)" id="uiv-button">
+                  <g data-name="sun" id="uiv-sun">
+                    <g filter="url(#uiv-f-knob)" transform="matrix(1, 0, 0, 1, -5.83, -5.83)">
+                      <circle fill="#f8e664" transform="translate(5.83 5.83)" r="15.167" cy="15.167" cx="15.167" data-name="sun-outer" id="uiv-sun-outer-2"></circle>
+                    </g>
+                    <g transform="matrix(1, 0, 0, 1, -5.83, -5.83)">
+                      <path fill="rgba(246,254,247,0.29)" transform="translate(9.33 9.33)" d="M11.667,0A11.667,11.667,0,1,1,0,11.667,11.667,11.667,0,0,1,11.667,0Z" data-name="sun" id="uiv-sun-3"></path>
+                    </g>
+                    <circle fill="#fcf4b9" transform="translate(8.167 8.167)" r="7" cy="7" cx="7" id="uiv-sun-inner"></circle>
+                  </g>
+
+                  <g data-name="moon" id="uiv-moon">
+                    <g filter="url(#uiv-f-knob)" transform="matrix(1, 0, 0, 1, -31.5, -5.83)">
+                      <circle fill="#cce6ee" transform="translate(31.5 5.83)" r="15.167" cy="15.167" cx="15.167" data-name="moon" id="uiv-moon-3"></circle>
+                    </g>
+                    <g fill="#a6cad0" transform="translate(-24.415 -1.009)" id="uiv-patches">
+                      <circle transform="translate(43.009 4.496)" r="2" cy="2" cx="2"></circle>
+                      <circle transform="translate(39.366 17.952)" r="2" cy="2" cx="2" data-name="patch"></circle>
+                      <circle transform="translate(33.016 8.044)" r="1" cy="1" cx="1" data-name="patch"></circle>
+                      <circle transform="translate(51.081 18.888)" r="1" cy="1" cx="1" data-name="patch"></circle>
+                      <circle transform="translate(33.016 22.503)" r="1" cy="1" cx="1" data-name="patch"></circle>
+                      <circle transform="translate(50.081 10.53)" r="1.5" cy="1.5" cx="1.5" data-name="patch"></circle>
+                    </g>
+                  </g>
+                </g>
+
+                <g transform="matrix(1, 0, 0, 1, -3.5, -3.5)">
+                  <path fill="#fff" transform="translate(-3466.47 -160.94)" d="M3512.81,173.815a4.463,4.463,0,0,1,2.243.62.95.95,0,0,1,.72-1.281,4.852,4.852,0,0,1,2.623.519c.034.02-.5-1.968.281-2.716a2.117,2.117,0,0,1,2.829-.274,1.821,1.821,0,0,1,.854,1.858c.063.037,2.594-.049,3.285,1.273s-.865,2.544-.807,2.626a12.192,12.192,0,0,1,2.278.892c.553.448,1.106,1.992-1.62,2.927a7.742,7.742,0,0,1-3.762-.3c-1.28-.49-1.181-2.65-1.137-2.624s-1.417,2.2-2.623,2.2a4.172,4.172,0,0,1-2.394-1.206,3.825,3.825,0,0,1-2.771.774c-3.429-.46-2.333-3.267-2.2-3.55A3.721,3.721,0,0,1,3512.81,173.815Z" data-name="cloud" id="uiv-cloud"></path>
+                </g>
+
+                <g fill="#def8ff" transform="translate(3.585 1.325)" id="uiv-stars">
+                  <path transform="matrix(-1, 0.017, -0.017, -1, 24.231, 3.055)" d="M.774,0,.566.559,0,.539.458.933.25,1.492l.485-.361.458.394L1.024.953,1.509.592.943.572Z"></path>
+                  <path transform="matrix(-0.777, 0.629, -0.629, -0.777, 23.185, 12.358)" d="M1.341.529.836.472.736,0,.505.46,0,.4.4.729l-.231.46L.605.932l.4.326L.9.786Z" data-name="star"></path>
+                  <path transform="matrix(0.438, 0.899, -0.899, 0.438, 23.177, 29.735)" d="M.015,1.065.475.9l.285.365L.766.772l.46-.164L.745.494.751,0,.481.407,0,.293.285.658Z" data-name="star"></path>
+                  <path transform="translate(12.677 0.388) rotate(104)" d="M1.161,1.6,1.059,1,1.574.722.962.607.86,0,.613.572,0,.457.446.881.2,1.454l.516-.274Z" data-name="star"></path>
+                  <path transform="matrix(-0.07, 0.998, -0.998, -0.07, 11.066, 15.457)" d="M.873,1.648l.114-.62L1.579.945,1.03.62,1.144,0,.706.464.157.139.438.7,0,1.167l.592-.083Z" data-name="star"></path>
+                  <path transform="translate(8.326 28.061) rotate(11)" d="M.593,0,.638.724,0,.982l.7.211.045.724.36-.64.7.211L1.342.935,1.7.294,1.063.552Z" data-name="star"></path>
+                  <path transform="translate(5.012 5.962) rotate(172)" d="M.816,0,.5.455,0,.311.323.767l-.312.455.516-.215.323.456L.827.911,1.343.7.839.552Z" data-name="star"></path>
+                  <path transform="translate(2.218 14.616) rotate(169)" d="M1.261,0,.774.571.114.3.487.967,0,1.538.728,1.32l.372.662.047-.749.728-.218L1.215.749Z" data-name="star"></path>
+                </g>
+              </g>
+            </svg>
+          </label>
+
+          <button type="button" class="icon-pill-btn" onclick="SoundEngine.toggleMute()" id="btn-audio-switch" title="الموسيقى والمؤثرات الصوتية">
+            <span id="icon-audio-switch">🔊</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <main class="main-stage">
+      <div class="container">
+
+        <!-- ==================== 1. INTRO / WELCOME SCREEN ==================== -->
+        <section id="screen-intro" class="intro-grid anim-enter">
+          <!-- Academic Overview Card -->
+          <div class="surface-card hero-card">
+            <div>
+              <div class="uni-badge">
+                <span>🏛️</span>
+                <span id="hero-uni-badge">كلية التربية النوعية • برنامج الاقتصاد المنزلي • جامعة عين شمس</span>
+              </div>
+
+              <h1 class="hero-heading">
+                <span id="hero-title-main">من سيربح المليون التعليمية</span>
+                <span class="accent-line" id="hero-title-accent">تغذية المراهقين</span>
+              </h1>
+
+              <p class="hero-desc" id="hero-description">
+                مسابقة علمية تفاعلية متدرجة تضم 15 سؤالاً مختاراً بعناية من بنك معلومات متخصص، مصممة لتعزيز الوعي الغذائي والصحي في مرحلة المراهقة مع شرح علمي فوري لكل إجابة وشهادة تقدير رسمية.
+              </p>
+            </div>
+
+            <!-- Academic Supervision -->
+            <div class="supervisor-banner">
+              <div class="supervisor-info">
+                <div class="supervisor-avatar">🎓</div>
+                <div>
+                  <div style="font-size: 0.78rem; color: var(--text-muted); font-weight: 700;" id="sup-label">تحت الإشراف الأكاديمي</div>
+                  <div style="font-size: 1.14rem; font-weight: 800; color: var(--text-primary);" id="sup-name">د. محمود رفعت</div>
+                </div>
+              </div>
+              <button type="button" class="btn-outline" onclick="App.toggleModal('team-modal', true)" id="btn-view-students">
+                عرض فريق الطالبات
+              </button>
+            </div>
+
+            <!-- Clean Feature Summary (No 1M shorthand!) -->
+            <div class="feature-pills">
+              <div class="feature-item">
+                <span>🎯</span>
+                <span id="feat-1">15 سؤالاً علمياً متدرجاً</span>
+              </div>
+              <div class="feature-item">
+                <span>⏱️</span>
+                <span id="feat-2">عداد زمني تفاعلي لكل سؤال</span>
+              </div>
+              <div class="feature-item">
+                <span>💡</span>
+                <span id="feat-3">4 وسائل مساعدة ذكية</span>
+              </div>
+              <div class="feature-item">
+                <span>📜</span>
+                <span id="feat-4">شهادة تقدير معتمدة باسمك</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mandatory Student Entry Card -->
+          <div class="surface-card start-card">
+            <div>
+              <h2 style="margin: 0 0 6px; font-size: 1.35rem; font-weight: 800;" id="start-card-title">تسجيل بيانات المتسابق</h2>
+              <p style="margin: 0 0 20px; font-size: 0.88rem; color: var(--text-muted);" id="start-card-sub">
+                يرجى إدخال اسمك الكامل لبدء الاختبار وإصدار شهادة التقدير الخاصة بك في نهاية المسابقة.
+              </p>
+
+              <!-- Mandatory Name Input -->
+              <div style="margin-bottom: 18px;">
+                <label for="player-name-input" class="field-label">
+                  <span id="label-player-name">اسم المتسابق / الطالب</span>
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  id="player-name-input"
+                  type="text"
+                  maxlength="45"
+                  autocomplete="name"
+                  class="text-input"
+                  placeholder="اكتب اسمك الثلاثي هنا..."
+                  oninput="App.clearNameError()"
+                />
+                <div id="name-error-msg" class="validation-msg hidden">
+                  <span>⚠️</span>
+                  <span id="name-error-text">يرجى كتابة اسمك أولاً قبل بدء المسابقة</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <button type="button" class="btn-primary" style="width: 100%;" onclick="App.startQuiz()">
+                <span id="btn-start-quiz">ابدأ المسابقة الآن</span>
+                <span id="start-arrow">⬅️</span>
+              </button>
+
+              <div class="quick-prefs-grid">
+                <button type="button" class="btn-outline" onclick="App.openStudyModal()" id="btn-intro-study">
+                  📚 المرجع العلمي
+                </button>
+                <button type="button" class="btn-outline" onclick="App.exportHTMLFile()" id="btn-intro-export">
+                  📥 تحميل النسخة
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 2. ACTIVE QUIZ SCREEN ==================== -->
+        <section id="screen-quiz" class="quiz-layout hidden">
+          <!-- Main Quiz Column -->
+          <div class="quiz-main-col">
+
+            <!-- Lifelines + Mandatory Countdown Timer -->
+            <div class="surface-card controls-bar">
+              <div class="lifelines-row">
+                <button type="button" id="life-5050" class="lifeline-btn" onclick="App.useLifeline('5050')">
+                  <span class="lifeline-icon">⚖️</span>
+                  <span class="lifeline-label" id="lbl-life-5050">حذف إجابتين</span>
+                </button>
+                <button type="button" id="life-audience" class="lifeline-btn" onclick="App.useLifeline('audience')">
+                  <span class="lifeline-icon">📊</span>
+                  <span class="lifeline-label" id="lbl-life-audience">رأي الجمهور</span>
+                </button>
+                <button type="button" id="life-expert" class="lifeline-btn" onclick="App.useLifeline('expert')">
+                  <span class="lifeline-icon">👩‍⚕️</span>
+                  <span class="lifeline-label" id="lbl-life-expert">استشارة خبير</span>
+                </button>
+                <button type="button" id="life-swap" class="lifeline-btn" onclick="App.useLifeline('swap')">
+                  <span class="lifeline-icon">🔄</span>
+                  <span class="lifeline-label" id="lbl-life-swap">تبديل السؤال</span>
+                </button>
+              </div>
+
+              <!-- Mandatory Countdown Timer & Walk-Away -->
+              <div class="timer-walk-group">
+                <div class="timer-ring-box" title="الوقت المتبقي">
+                  <svg class="timer-svg" viewBox="0 0 56 56">
+                    <circle cx="28" cy="28" r="23" stroke="var(--border-subtle)" stroke-width="4.5" fill="none"></circle>
+                    <circle id="timer-arc" cx="28" cy="28" r="23" stroke="var(--brand-primary)" stroke-width="4.5" stroke-linecap="round" fill="none" stroke-dasharray="144.5" stroke-dashoffset="0" style="transition: stroke-dashoffset 0.35s linear, stroke 0.3s ease;"></circle>
+                  </svg>
+                  <span id="timer-seconds" class="timer-number">45</span>
+                </div>
+
+                <button type="button" id="btn-walkaway" class="btn-outline" onclick="App.walkAway()">
+                  <span>💼</span>
+                  <span id="lbl-walkaway">انسحاب</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Question & Options Card -->
+            <div id="question-stage-card" class="surface-card question-card anim-enter">
+              <div class="q-meta-row">
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                  <span class="badge-pill badge-step" id="q-step-badge">السؤال 1 من 15</span>
+                  <span class="badge-pill badge-cat" id="q-cat-badge">فسيولوجيا النمو</span>
+                </div>
+                <span class="badge-pill badge-points" id="q-points-badge">100 نقطة</span>
+              </div>
+
+              <h2 id="q-text" class="question-title"></h2>
+
+              <div id="options-grid" class="options-grid"></div>
+
+              <!-- Final Answer Confirmation Banner -->
+              <div id="confirm-banner" class="confirm-banner hidden anim-enter">
+                <div style="font-weight: 700; font-size: 0.94rem;" id="confirm-prompt-text">
+                  هل أنت متأكد من تثبيت هذه الإجابة؟
+                </div>
+                <button type="button" class="btn-gold" style="min-height: 42px; padding: 8px 20px;" onclick="App.confirmFinalAnswer()" id="btn-confirm-answer">
+                  تأكيد الإجابة النهائية ✓
+                </button>
+              </div>
+
+              <!-- Educational Explanation Box -->
+              <div id="feedback-box" class="feedback-box hidden anim-enter">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                  <strong style="font-size: 1.06rem;" id="feedback-status-title"></strong>
+                  <span style="font-size: 0.84rem; font-weight: 800;" id="feedback-balance-tag"></span>
+                </div>
+                <div style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.7;">
+                  <strong style="color: var(--text-primary);" id="lbl-sci-note">💡 المعلومة العلمية: </strong>
+                  <span id="feedback-explanation-text"></span>
+                </div>
+                <div style="display: flex; justify-content: flex-end; padding-top: 4px;">
+                  <button type="button" class="btn-primary" style="min-height: 46px; padding: 10px 24px;" onclick="App.nextQuestion()">
+                    <span id="btn-next-text">السؤال التالي</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Prize Ladder Sidebar -->
+          <aside class="surface-card ladder-card">
+            <div class="ladder-header">
+              <div>
+                <div style="font-weight: 800; font-size: 0.98rem;" id="ladder-title">سلم النقاط</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);" id="ladder-safe-sub">محطات الأمان: 1,000 • 32,000</div>
+              </div>
+              <button type="button" class="btn-outline" style="min-height: 32px; padding: 4px 10px; font-size: 0.75rem;" id="btn-toggle-ladder" onclick="App.toggleMobileLadder()">
+                ↕️
+              </button>
+            </div>
+            <div id="ladder-list" class="ladder-list collapsed-mobile"></div>
+          </aside>
+        </section>
+
+        <!-- ==================== 3. RESULTS & LUXURY CERTIFICATE SCREEN ==================== -->
+        <section id="screen-result" class="hidden anim-enter">
+          <!-- Performance Summary -->
+          <div class="surface-card result-summary-card">
+            <div style="font-size: 3.2rem; line-height: 1; margin-bottom: 10px;" id="res-emoji">🏆</div>
+            <h2 style="margin: 0 0 8px; font-size: clamp(1.5rem, 3.8vw, 2.3rem); font-weight: 900;" id="res-title"></h2>
+            <p style="margin: 0 auto; max-width: 640px; color: var(--text-secondary); font-size: 0.98rem;" id="res-subtitle"></p>
+
+            <div class="kpi-grid">
+              <div class="kpi-box">
+                <div style="font-size: 0.8rem; color: var(--text-muted);" id="lbl-kpi-score">الرصيد النهائي</div>
+                <div class="kpi-val" id="val-kpi-score">0</div>
+              </div>
+              <div class="kpi-box">
+                <div style="font-size: 0.8rem; color: var(--text-muted);" id="lbl-kpi-correct">الإجابات الصحيحة</div>
+                <div class="kpi-val" id="val-kpi-correct">0 / 15</div>
+              </div>
+              <div class="kpi-box">
+                <div style="font-size: 0.8rem; color: var(--text-muted);" id="lbl-kpi-pct">نسبة الدقة</div>
+                <div class="kpi-val" id="val-kpi-pct">0%</div>
+              </div>
+              <div class="kpi-box">
+                <div style="font-size: 0.8rem; color: var(--text-muted);" id="lbl-kpi-grade">التقدير العلمي</div>
+                <div class="kpi-val" style="font-size: 1.05rem;" id="val-kpi-grade"></div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 10px;">
+              <button type="button" class="btn-gold" onclick="App.downloadLuxuryCertificatePNG()">
+                <span>🏅</span>
+                <span id="btn-dl-cert">تحميل شهادة التقدير الفاخرة (PNG)</span>
+              </button>
+              <button type="button" class="btn-outline" onclick="window.print()">
+                <span>🖨️</span>
+                <span id="btn-print-cert">طباعة الشهادة (PDF)</span>
+              </button>
+              <button type="button" class="btn-primary" onclick="App.startQuiz()">
+                <span>🔄</span>
+                <span id="btn-play-again">إعادة المسابقة بأسئلة جديدة</span>
+              </button>
+              <button type="button" class="btn-outline" onclick="App.goHome()">
+                <span>🏠</span>
+                <span id="btn-back-home">الرئيسية</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PRESTIGIOUS ACADEMIC HONOR CERTIFICATE -->
+          <div id="certificate-print-root" class="certificate-showcase-wrapper">
+            <div class="luxury-certificate">
+              <div class="cert-outer-frame">
+                <div class="cert-corner tl"></div>
+                <div class="cert-corner tr"></div>
+                <div class="cert-corner bl"></div>
+                <div class="cert-corner br"></div>
+
+                <div class="cert-inner-frame">
+                  <div class="cert-top-institution" id="cert-inst-line">
+                    جامعة عين شمس • كلية التربية النوعية • برنامج الاقتصاد المنزلي
+                  </div>
+
+                  <h3 class="cert-main-heading" id="cert-heading">شهادة تقدير وتفوق علمي</h3>
+                  <div class="cert-sub-ribbon" id="cert-ribbon">مسابقة من سيربح المليون التعليمية • تغذية المراهقين</div>
+
+                  <div class="cert-presented-to" id="cert-intro-line">تُمنح هذه الشهادة بكل فخر واعتزاز إلى الطالب / الباحث:</div>
+                  <div class="cert-recipient-name" id="cert-recipient"></div>
+
+                  <p class="cert-citation-body" id="cert-body-text"></p>
+
+                  <div class="cert-badges-strip">
+                    <span class="cert-stat-pill" id="cert-pill-score"></span>
+                    <span class="cert-stat-pill" id="cert-pill-accuracy"></span>
+                    <span class="cert-stat-pill" id="cert-pill-rank"></span>
+                  </div>
+
+                  <div class="cert-footer-signatures">
+                    <div class="cert-sig-col">
+                      <div class="cert-sig-label" id="cert-sup-title">الإشراف الأكاديمي والعلمي</div>
+                      <div class="cert-sig-value" id="cert-sup-name">د. محمود رفعت</div>
+                      <div class="cert-sig-sub" id="cert-sup-dept">كلية التربية النوعية - جامعة عين شمس</div>
+                    </div>
+
+                    <!-- Golden Embossed Vector Seal -->
+                    <div class="cert-sig-col">
+                      <svg class="gold-seal-svg" viewBox="0 0 120 120">
+                        <defs>
+                          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f6d365"/>
+                            <stop offset="50%" stop-color="#d4af37"/>
+                            <stop offset="100%" stop-color="#9a6f18"/>
+                          </linearGradient>
+                        </defs>
+                        <!-- Ribbons -->
+                        <polygon points="44,88 32,118 46,110 54,118 56,90" fill="#115e59"/>
+                        <polygon points="76,88 88,118 74,110 66,118 64,90" fill="#115e59"/>
+                        <!-- Outer Sunburst Seal -->
+                        <circle cx="60" cy="54" r="42" fill="url(#goldGrad)" stroke="#7c5810" stroke-width="2"/>
+                        <circle cx="60" cy="54" r="35" fill="none" stroke="#fffbeb" stroke-width="1.5" stroke-dasharray="3,2"/>
+                        <circle cx="60" cy="54" r="29" fill="none" stroke="#7c5810" stroke-width="1.2"/>
+                        <text x="60" y="51" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="900">★ ★ ★</text>
+                        <text x="60" y="66" text-anchor="middle" fill="#1e293b" font-size="9.5" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">EXCELLENCE</text>
+                      </svg>
+                    </div>
+
+                    <div class="cert-sig-col">
+                      <div class="cert-sig-label" id="cert-date-title">تاريخ الإصدار والاعتماد</div>
+                      <div class="cert-sig-value" id="cert-date-val"></div>
+                      <div class="cert-sig-sub" id="cert-serial-val"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Session Answers Review -->
+          <div class="surface-card" style="padding: clamp(20px, 3.5vw, 32px);">
+            <h3 style="margin: 0 0 16px; font-size: 1.2rem; font-weight: 800;" id="review-section-title">
+              📋 مراجعة الإجابات والمعلومات الغذائية
+            </h3>
+            <div id="session-review-container" style="display: flex; flex-direction: column; gap: 12px;"></div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+      <div class="container" id="footer-text">
+        كلية التربية النوعية • برنامج الاقتصاد المنزلي • جامعة عين شمس — تحت إشراف د. محمود رفعت
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. TEAM & ACADEMIC SUPERVISION MODAL -->
+  <div id="team-modal" class="modal-backdrop hidden" onclick="if(event.target===this) App.toggleModal('team-modal', false)">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div>
+          <h3 style="margin: 0; font-size: 1.3rem; font-weight: 800;" id="team-modal-title">فريق العمل والإشراف الأكاديمي</h3>
+          <p style="margin: 4px 0 0; font-size: 0.85rem; color: var(--text-muted);" id="team-modal-sub">
+            كلية التربية النوعية • برنامج الاقتصاد المنزلي • جامعة عين شمس
+          </p>
+        </div>
+        <button type="button" class="btn-outline" style="min-height: 36px; padding: 4px 12px;" onclick="App.toggleModal('team-modal', false)">✕</button>
+      </div>
+
+      <div class="supervisor-banner" style="margin-bottom: 18px;">
+        <div class="supervisor-info">
+          <div class="supervisor-avatar">👨‍🏫</div>
+          <div>
+            <div style="font-size: 0.78rem; color: var(--text-muted); font-weight: 700;" id="modal-sup-label">تحت إشراف</div>
+            <div style="font-size: 1.2rem; font-weight: 800;" id="modal-sup-name">د. محمود رفعت</div>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="margin: 0 0 12px; font-size: 0.95rem; font-weight: 800;" id="modal-students-heading">إعداد الطالبات:</h4>
+      <div id="students-grid" class="students-grid"></div>
+    </div>
+  </div>
+
+  <!-- 2. AUDIENCE POLL MODAL -->
+  <div id="audience-modal" class="modal-backdrop hidden" onclick="if(event.target===this) App.toggleModal('audience-modal', false)">
+    <div class="modal-panel" style="max-width: 460px;">
+      <div class="modal-header">
+        <h3 style="margin: 0; font-size: 1.2rem; font-weight: 800;" id="aud-modal-title">📊 نتائج تصويت الجمهور</h3>
+        <button type="button" class="btn-outline" style="min-height: 34px; padding: 4px 10px;" onclick="App.toggleModal('audience-modal', false)">✕</button>
+      </div>
+      <div id="audience-bars-box" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;"></div>
+      <button type="button" class="btn-primary" style="width: 100%;" onclick="App.toggleModal('audience-modal', false)" id="aud-close-btn">متابعة</button>
+    </div>
+  </div>
+
+  <!-- 3. EXPERT CONSULTATION MODAL -->
+  <div id="expert-modal" class="modal-backdrop hidden" onclick="if(event.target===this) App.toggleModal('expert-modal', false)">
+    <div class="modal-panel" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3 style="margin: 0; font-size: 1.2rem; font-weight: 800;" id="exp-modal-title">👩‍⚕️ استشارة خبير التغذية</h3>
+        <button type="button" class="btn-outline" style="min-height: 34px; padding: 4px 10px;" onclick="App.toggleModal('expert-modal', false)">✕</button>
+      </div>
+      <div id="expert-advice-text" style="padding: 16px; border-radius: 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); font-size: 0.96rem; line-height: 1.75; margin-bottom: 20px;"></div>
+      <button type="button" class="btn-primary" style="width: 100%;" onclick="App.toggleModal('expert-modal', false)" id="exp-close-btn">شكراً للنصيحة</button>
+    </div>
+  </div>
+
+  <!-- 4. STUDY REFERENCE / SCIENTIFIC ENCYCLOPEDIA MODAL -->
+  <div id="study-modal" class="modal-backdrop hidden" onclick="if(event.target===this) App.toggleModal('study-modal', false)">
+    <div class="modal-panel wide">
+      <div class="modal-header">
+        <div>
+          <h3 style="margin: 0; font-size: 1.25rem; font-weight: 800;" id="study-modal-title">📚 المرجع العلمي الشامل لتغذية المراهقين</h3>
+          <p style="margin: 4px 0 0; font-size: 0.84rem; color: var(--text-muted);" id="study-modal-sub">30 سؤالاً ومعلومة علمية موثقة</p>
+        </div>
+        <button type="button" class="btn-outline" style="min-height: 36px; padding: 4px 12px;" onclick="App.toggleModal('study-modal', false)">✕</button>
+      </div>
+
+      <input
+        id="study-search-input"
+        type="text"
+        class="text-input"
+        style="height: 46px; margin-bottom: 16px;"
+        oninput="App.renderStudyGuide()"
+        placeholder="ابحث في المادة العلمية..."
+      />
+
+      <div id="study-cards-list" style="display: flex; flex-direction: column; gap: 12px;"></div>
+    </div>
+  </div>
+
+  <!-- ==================== APPLICATION LOGIC & BILINGUAL DATA ==================== -->
+  <script>
+    /* =========================================================================
+       1. EXCITING SOUNDTRACK & DRAMATIC MUSIC ENGINE (Web Audio API)
+       Plays motivating background suspense pulse during questions + exciting stings!
+       ========================================================================= */
+    const SoundEngine = {
+      ctx: null,
+      muted: false,
+      bgLoopTimer: null,
+      beatStep: 0,
+
+      ensureCtx() {
+        if (!this.ctx) {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (AC) this.ctx = new AC();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      },
+
+      toggleMute() {
+        this.muted = !this.muted;
+        document.getElementById('icon-audio-switch').textContent = this.muted ? '🔇' : '🔊';
+        if (this.muted) {
+          this.stopQuestionMusic();
+        } else {
+          this.playClick();
+          const quizActive = !document.getElementById('screen-quiz').classList.contains('hidden');
+          if (quizActive && !App.isAnswered) {
+            this.startQuestionMusic();
+          }
+        }
+      },
+
+      playNote(freq, type = 'sine', duration = 0.18, vol = 0.1, delay = 0) {
+        if (this.muted) return;
+        try {
+          this.ensureCtx();
+          if (!this.ctx) return;
+          const now = this.ctx.currentTime + delay;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, now);
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(vol, now + 0.018);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now);
+          osc.stop(now + duration + 0.03);
+        } catch (e) {}
+      },
+
+      playClick() {
+        this.playNote(660, 'triangle', 0.07, 0.06, 0);
+      },
+
+      playValidationError() {
+        this.playNote(220, 'sawtooth', 0.14, 0.08, 0);
+        this.playNote(185, 'sawtooth', 0.18, 0.08, 0.12);
+      },
+
+      /* Exciting musical sting when each new question appears */
+      playQuestionIntro(levelIndex = 0) {
+        const transpose = Math.min(levelIndex * 12, 140);
+        const motif = [293.66, 369.99, 440, 587.33].map(f => f + transpose);
+        motif.forEach((f, idx) => {
+          this.playNote(f, 'triangle', 0.22, 0.09, idx * 0.075);
+        });
+      },
+
+      /* Motivating, dramatic Millionaire-style rhythmic background music while thinking */
+      startQuestionMusic() {
+        this.stopQuestionMusic();
+        if (this.muted) return;
+        this.beatStep = 0;
+        const scale = [146.83, 146.83, 174.61, 164.81, 146.83, 220.00, 196.00, 164.81];
+        const shimmer = [440, 523.25, 587.33, 523.25, 440, 659.25, 587.33, 523.25];
+
+        this.bgLoopTimer = setInterval(() => {
+          if (this.muted || App.isAnswered) return;
+          const urgent = App.timeLeft <= 10;
+          const idx = this.beatStep % scale.length;
+          // Deep rhythmic pulse
+          this.playNote(scale[idx], 'triangle', urgent ? 0.22 : 0.34, urgent ? 0.065 : 0.045, 0);
+          // Subtle exciting harmonic arpeggio
+          this.playNote(shimmer[idx], 'sine', 0.16, urgent ? 0.05 : 0.03, 0.12);
+          if (urgent) {
+            this.playNote(880, 'sine', 0.05, 0.05, 0);
+          }
+          this.beatStep++;
+        }, 480);
+      },
+
+      stopQuestionMusic() {
+        if (this.bgLoopTimer) {
+          clearInterval(this.bgLoopTimer);
+          this.bgLoopTimer = null;
+        }
+      },
+
+      /* Exciting tension chord when selecting/locking an option */
+      playOptionSelect() {
+        [329.63, 415.30, 493.88, 659.25].forEach((f, i) => {
+          this.playNote(f, 'triangle', 0.24, 0.09, i * 0.045);
+        });
+      },
+
+      playLifeline() {
+        [392, 493.88, 587.33, 783.99].forEach((f, i) => {
+          this.playNote(f, 'sine', 0.18, 0.09, i * 0.06);
+        });
+      },
+
+      playCorrect(isMilestone = false) {
+        const chord = isMilestone
+          ? [523.25, 659.25, 783.99, 1046.5, 1318.5]
+          : [440, 554.37, 659.25, 880];
+        chord.forEach((f, i) => {
+          this.playNote(f, 'triangle', 0.28, 0.11, i * 0.075);
+        });
+      },
+
+      playWrong() {
+        this.playNote(233.08, 'sawtooth', 0.28, 0.09, 0);
+        this.playNote(174.61, 'sawtooth', 0.45, 0.10, 0.20);
+      },
+
+      playGrandVictory() {
+        const notes = [523.25, 659.25, 783.99, 1046.5, 783.99, 1046.5, 1318.5, 1567.98];
+        notes.forEach((f, i) => {
+          this.playNote(f, 'triangle', 0.36, 0.13, i * 0.11);
+        });
+      }
+    };
+
+    /* =========================================================================
+       2. FULL BILINGUAL UI DICTIONARY (ARABIC & ENGLISH)
+       ========================================================================= */
+    const I18N = {
+      ar: {
+        pageTitle: 'من سيربح المليون التعليمية | تغذية المراهقين',
+        navTitle: 'من سيربح المليون التعليمية',
+        navSubtitle: 'تغذية المراهقين • كلية التربية النوعية - جامعة عين شمس',
+        navStudy: 'المرجع العلمي',
+        navTeam: 'فريق العمل',
+        uniBadge: 'كلية التربية النوعية • برنامج الاقتصاد المنزلي • جامعة عين شمس',
+        heroMain: 'من سيربح المليون التعليمية',
+        heroAccent: 'تغذية المراهقين',
+        heroDesc: 'مسابقة علمية تفاعلية متدرجة تضم 15 سؤالاً مختاراً بعناية من بنك معلومات متخصص، مصممة لتعزيز الوعي الغذائي والصحي في مرحلة المراهقة مع شرح علمي فوري لكل إجابة وشهادة تقدير رسمية.',
+        supLabel: 'تحت الإشراف الأكاديمي',
+        supName: 'د. محمود رفعت',
+        viewStudents: 'عرض فريق الطالبات',
+        feat1: '15 سؤالاً علمياً متدرجاً',
+        feat2: 'عداد زمني تفاعلي لكل سؤال',
+        feat3: '4 وسائل مساعدة ذكية',
+        feat4: 'شهادة تقدير معتمدة باسمك',
+        startCardTitle: 'تسجيل بيانات المتسابق',
+        startCardSub: 'يرجى إدخال اسمك الكامل لبدء الاختبار وإصدار شهادة التقدير الخاصة بك في نهاية المسابقة.',
+        labelPlayerName: 'اسم المتسابق / الطالب',
+        placeholderName: 'اكتب اسمك الثلاثي هنا...',
+        nameError: 'يرجى كتابة اسمك الكامل أولاً قبل الدخول إلى المسابقة',
+        btnStart: 'ابدأ المسابقة الآن',
+        startArrow: '⬅️',
+        btnIntroStudy: '📚 المرجع العلمي',
+        btnIntroExport: '📥 حفظ نسخة مستقلة',
+        life5050: 'حذف إجابتين',
+        lifeAudience: 'رأي الجمهور',
+        lifeExpert: 'استشارة خبير',
+        lifeSwap: 'تبديل السؤال',
+        walkaway: 'انسحاب',
+        stepBadge: (cur, tot) => `السؤال ${cur} من ${tot}`,
+        pointsBadge: (pts) => `${pts.toLocaleString('en-US')} نقطة`,
+        pointsUnit: 'نقطة',
+        letters: ['أ', 'ب', 'ج', 'د'],
+        confirmPrompt: 'هل أنت متأكد من تثبيت هذه الإجابة؟',
+        confirmBtn: 'تأكيد الإجابة النهائية ✓',
+        sciNoteLabel: '💡 المعلومة العلمية: ',
+        correctStatus: '✅ إجابة علمية صحيحة!',
+        milestoneStatus: (pts) => `🛡️ أحسنت! وصلت إلى محطة أمان (${pts.toLocaleString('en-US')} نقطة)`,
+        millionStatus: '👑 إنجاز استثنائي! ربحت المليون الكامل!',
+        wrongStatus: '❌ إجابة غير صحيحة',
+        timeoutStatus: '⏱️ انتهى الوقت المحدد للسؤال!',
+        balanceTag: (pts) => `الرصيد: ${pts.toLocaleString('en-US')} نقطة`,
+        nextQuestionBtn: 'السؤال التالي ⬅️',
+        showResultBtn: 'عرض النتيجة والشهادة 🏅',
+        ladderTitle: 'سلم النقاط',
+        ladderSafeSub: 'محطات الأمان: 1,000 • 32,000',
+        winTitle: (name) => `ألف مبروك يا ${name}! حققت المليون!`,
+        winSub: 'أداء علمي مبهر! أتممت جميع المستويات الـ 15 بنجاح وأظهرت إلماماً متكاملاً بأسس تغذية المراهقين.',
+        walkTitle: (name) => `انسحاب ذكي يا ${name}!`,
+        walkSub: (pts) => `قررت الانسحاب والاحتفاظ برصيدك المكتسب البالغ ${pts.toLocaleString('en-US')} نقطة.`,
+        overTitle: (name) => `محاولة جيدة يا ${name}!`,
+        overSub: (pts) => pts > 0
+          ? `انتهت المسابقة مع احتفاظك برصيد محطة الأمان البالغ ${pts.toLocaleString('en-US')} نقطة. استعرض شهادتك ومراجعة الأسئلة بالأسفل.`
+          : 'كل جولة تضيف لك معرفة علمية جديدة! راجع الشرح العلمي بالأسفل وأعد المحاولة بأسئلة متجددة.',
+        kpiScore: 'الرصيد النهائي',
+        kpiCorrect: 'الإجابات الصحيحة',
+        kpiPct: 'نسبة الدقة',
+        kpiGrade: 'التقدير العلمي',
+        grades: {
+          million: 'امتياز مع مرتبة الشرف 👑',
+          high: 'امتياز 🌟',
+          good: 'جيد جداً متقدم 🛡️',
+          pass: 'جيد 🧬',
+          starter: 'مشارك واعد 🌱'
+        },
+        dlCertBtn: 'تحميل شهادة التقدير الفاخرة (PNG)',
+        printCertBtn: 'طباعة الشهادة (PDF)',
+        playAgainBtn: 'جولة جديدة بأسئلة مختلفة',
+        backHomeBtn: 'الصفحة الرئيسية',
+        certInst: 'جامعة عين شمس • كلية التربية النوعية • برنامج الاقتصاد المنزلي',
+        certHeading: 'شهادة تقدير وتفوق علمي',
+        certRibbon: 'مسابقة من سيربح المليون التعليمية • تغذية المراهقين',
+        certIntro: 'تُمنح هذه الشهادة بكل فخر واعتزاز إلى الطالب / الباحث:',
+        certBody: (pts, cor) => `تقديراً لاجتيازه التقييم العلمي التفاعلي في مجال "تغذية المراهقين وصحة النمو"، وتحقيقه رصيداً قدره (${pts.toLocaleString('en-US')}) نقطة بإجمالي (${cor} من 15) إجابة علمية صحيحة.`,
+        certScorePill: (pts) => `الرصيد: ${pts.toLocaleString('en-US')} نقطة`,
+        certAccPill: (pct) => `نسبة الإتقان: ${pct}%`,
+        certRankPill: (g) => `التقدير: ${g}`,
+        certSupTitle: 'الإشراف الأكاديمي والعلمي',
+        certSupName: 'د. محمود رفعت',
+        certSupDept: 'كلية التربية النوعية - جامعة عين شمس',
+        certDateTitle: 'تاريخ الإصدار والاعتماد',
+        reviewTitle: '📋 مراجعة الإجابات والمعلومات الغذائية لجولتك',
+        yourChoice: 'إجابتك:',
+        correctChoice: 'الإجابة الصحيحة:',
+        timedOutChoice: 'انتهى الوقت',
+        footerText: 'كلية التربية النوعية • برنامج الاقتصاد المنزلي • جامعة عين شمس — تحت إشراف د. محمود رفعت',
+        teamModalTitle: 'فريق العمل والإشراف الأكاديمي',
+        modalSupLabel: 'تحت إشراف',
+        modalStudentsHeading: 'إعداد الطالبات:',
+        audModalTitle: '📊 نتائج تصويت الجمهور',
+        audOptionLabel: (l) => `الخيار (${l})`,
+        audCloseBtn: 'حسناً، متابعة',
+        expModalTitle: '👩‍⚕️ استشارة خبير التغذية',
+        expGreeting: (name, cat, hint) => `مرحباً <strong>${name}</strong>، بخصوص سؤالك في محور (${cat}):<br><br>"${hint}"`,
+        expCloseBtn: 'شكراً للنصيحة',
+        studyModalTitle: '📚 المرجع العلمي الشامل لتغذية المراهقين',
+        studyModalSub: '30 سؤالاً ومعلومة غذائية موثقة للمراجعة الأكاديمية',
+        studySearchPlaceholder: 'ابحث عن عنصر غذائي (مثل: الحديد، الكالسيوم، أوميغا-3، الإفطار)...'
+      },
+
+      en: {
+        pageTitle: 'Educational Millionaire Quiz | Adolescent Nutrition',
+        navTitle: 'Educational Millionaire Quiz',
+        navSubtitle: 'Adolescent Nutrition • Faculty of Specific Education - Ain Shams University',
+        navStudy: 'Study Guide',
+        navTeam: 'Academic Team',
+        uniBadge: 'Faculty of Specific Education • Home Economics Program • Ain Shams University',
+        heroMain: 'Educational Millionaire',
+        heroAccent: 'Adolescent Nutrition',
+        heroDesc: 'An interactive 15-level academic assessment curated from a specialized nutrition bank, designed to promote adolescent health awareness with instant evidence-based explanations and an official certificate of achievement.',
+        supLabel: 'Academic Supervision',
+        supName: 'Dr. Mahmoud Refaat',
+        viewStudents: 'View Research Students',
+        feat1: '15 Progressive Questions',
+        feat2: 'Active Countdown Timer',
+        feat3: '4 Smart Lifelines',
+        feat4: 'Official Personalized Certificate',
+        startCardTitle: 'Participant Registration',
+        startCardSub: 'Please enter your full name to unlock the assessment and generate your official honor certificate upon completion.',
+        labelPlayerName: 'Student / Participant Full Name',
+        placeholderName: 'Enter your full name here...',
+        nameError: 'Please enter your full name before starting the assessment',
+        btnStart: 'Start Assessment Now',
+        startArrow: '➡️',
+        btnIntroStudy: '📚 Study Guide',
+        btnIntroExport: '📥 Download Offline Copy',
+        life5050: '50:50',
+        lifeAudience: 'Ask Class',
+        lifeExpert: 'Ask Expert',
+        lifeSwap: 'Swap Question',
+        walkaway: 'Walk Away',
+        stepBadge: (cur, tot) => `Question ${cur} of ${tot}`,
+        pointsBadge: (pts) => `${pts.toLocaleString('en-US')} pts`,
+        pointsUnit: 'pts',
+        letters: ['A', 'B', 'C', 'D'],
+        confirmPrompt: 'Lock in this choice as your final answer?',
+        confirmBtn: 'Confirm Final Answer ✓',
+        sciNoteLabel: '💡 Scientific Insight: ',
+        correctStatus: '✅ Correct Answer!',
+        milestoneStatus: (pts) => `🛡️ Great job! Safe Haven reached (${pts.toLocaleString('en-US')} pts)`,
+        millionStatus: '👑 Extraordinary! You Won the Full 1,000,000 Points!',
+        wrongStatus: '❌ Incorrect Answer',
+        timeoutStatus: '⏱️ Time is up for this question!',
+        balanceTag: (pts) => `Score: ${pts.toLocaleString('en-US')} pts`,
+        nextQuestionBtn: 'Next Question ➡️',
+        showResultBtn: 'View Certificate & Report 🏅',
+        ladderTitle: 'Points Ladder',
+        ladderSafeSub: 'Safe Havens: 1,000 • 32,000',
+        winTitle: (name) => `Congratulations, ${name}! Millionaire Champion!`,
+        winSub: 'Outstanding academic mastery! You successfully completed all 15 progressive levels in Adolescent Nutrition.',
+        walkTitle: (name) => `Smart Strategy, ${name}!`,
+        walkSub: (pts) => `You chose to walk away and secured your earned balance of ${pts.toLocaleString('en-US')} points.`,
+        overTitle: (name) => `Well Played, ${name}!`,
+        overSub: (pts) => pts > 0
+          ? `Assessment concluded with your Safe Haven balance of ${pts.toLocaleString('en-US')} points secured. View your certificate and scientific review below.`
+          : 'Every attempt builds stronger scientific insight! Review the nutritional explanations below and try a fresh randomized round.',
+        kpiScore: 'Final Score',
+        kpiCorrect: 'Correct Answers',
+        kpiPct: 'Accuracy Rate',
+        kpiGrade: 'Academic Standing',
+        grades: {
+          million: 'Summa Cum Laude 👑',
+          high: 'Distinction 🌟',
+          good: 'Very Good Honors 🛡️',
+          pass: 'Merit 🧬',
+          starter: 'Rising Scholar 🌱'
+        },
+        dlCertBtn: 'Download Luxury Certificate (HD PNG)',
+        printCertBtn: 'Print Certificate (PDF)',
+        playAgainBtn: 'Play New Randomized Round',
+        backHomeBtn: 'Main Menu',
+        certInst: 'Ain Shams University • Faculty of Specific Education • Home Economics',
+        certHeading: 'Certificate of Academic Excellence',
+        certRibbon: 'Educational Millionaire Assessment • Adolescent Nutrition',
+        certIntro: 'This certificate is proudly presented to:',
+        certBody: (pts, cor) => `In recognition of successfully completing the interactive scientific assessment in Adolescent Nutrition & Growth Physiology, achieving a total score of ${pts.toLocaleString('en-US')} points (${cor} of 15 correct answers).`,
+        certScorePill: (pts) => `Score: ${pts.toLocaleString('en-US')} pts`,
+        certAccPill: (pct) => `Accuracy: ${pct}%`,
+        certRankPill: (g) => `Standing: ${g}`,
+        certSupTitle: 'Academic Supervision',
+        certSupName: 'Dr. Mahmoud Refaat',
+        certSupDept: 'Faculty of Specific Education - Ain Shams University',
+        certDateTitle: 'Date of Conferral',
+        reviewTitle: '📋 Session Scientific Review & Explanations',
+        yourChoice: 'Your Answer:',
+        correctChoice: 'Correct Answer:',
+        timedOutChoice: 'Time Expired',
+        footerText: 'Faculty of Specific Education • Home Economics Program • Ain Shams University — Supervised by Dr. Mahmoud Refaat',
+        teamModalTitle: 'Academic Team & Supervision',
+        modalSupLabel: 'Supervised By',
+        modalStudentsHeading: 'Prepared by Students:',
+        audModalTitle: '📊 Classroom Poll Results',
+        audOptionLabel: (l) => `Option (${l})`,
+        audCloseBtn: 'Continue',
+        expModalTitle: '👩‍⚕️ Clinical Nutritionist Consultation',
+        expGreeting: (name, cat, hint) => `Hello <strong>${name}</strong>, regarding this question in (${cat}):<br><br>"${hint}"`,
+        expCloseBtn: 'Thank You',
+        studyModalTitle: '📚 Adolescent Nutrition Reference Guide',
+        studyModalSub: '30 Evidence-Based Nutritional Facts & Clinical Explanations',
+        studySearchPlaceholder: 'Search nutrients or topics (e.g., Iron, Calcium, Omega-3, Breakfast)...'
+      }
+    };
+
+    const STUDENTS_LIST = [
+      { ar: 'ملك طاهر خليل', en: 'Malak Taher Khalil' },
+      { ar: 'مرام امل محمد', en: 'Maram Amal Mohamed' },
+      { ar: 'ايه اشرف عبد اللطيف', en: 'Aya Ashraf Abdellatif' },
+      { ar: 'حبيبه اشرف عبد الخالق', en: 'Habiba Ashraf Abdelkhalek' },
+      { ar: 'حبيبه ياسر محمد', en: 'Habiba Yasser Mohamed' },
+      { ar: 'حبيبه حنفي محمود', en: 'Habiba Hanafy Mahmoud' },
+      { ar: 'ندي محمد كمال', en: 'Nada Mohamed Kamal' },
+      { ar: 'هنا ايمن منصور', en: 'Hana Ayman Mansour' },
+      { ar: 'هنا وليد الجارحي', en: 'Hana Walid El-Garhy' },
+      { ar: 'مريم عصام مسعد', en: 'Mariam Essam Mosaad' }
+    ];
+
+    const PRIZE_STEPS = [
+      100, 200, 300, 500, 1000,
+      2000, 4000, 8000, 16000, 32000,
+      64000, 125000, 250000, 500000, 1000000
+    ];
+
+    /* =========================================================================
+       3. COMPLETE 30-QUESTION BILINGUAL SCIENTIFIC BANK (ARABIC + ENGLISH)
+       ========================================================================= */
+    const QUESTION_BANK = [
+      // TIER 1 (Questions 1-10)
+      {
+        id: 1, tier: 1,
+        ar: {
+          cat: 'فسيولوجيا النمو',
+          q: 'لماذا تزداد احتياجات المراهقين من السعرات الحرارية والطاقة مقارنة بمرحلة الطفولة؟',
+          options: [
+            'بسبب طفرة النمو السريعة في الطول والكتلة العضلية وزيادة النشاط البدني',
+            'بسبب توقف إفراز هرمونات النمو واقتصار الجسم على تخزين الدهون',
+            'لأن الجهاز الهضمي يفقد قدرته على امتصاص النشويات المعقدة',
+            'لتعويض انخفاض معدل الأيض الأساسي خلال سنوات البلوغ'
+          ],
+          exp: 'تشهد مرحلة المراهقة طفرة نمو متسارعة في الطول والكتلة العضلية وكثافة العظام، مما يرفع الحاجة اليومية للطاقة والسعرات الصحية.',
+          hint: 'فكّر في التغيرات الجسدية المتسارعة في الطول والعضلات التي تميز سنوات البلوغ.'
+        },
+        en: {
+          cat: 'Growth Physiology',
+          q: 'Why do adolescents require significantly higher daily calories and energy compared to childhood?',
+          options: [
+            'Due to the rapid growth spurt in height, muscle mass, and increased physical activity',
+            'Because growth hormones stop secreting and the body only stores fat',
+            'Because the digestive tract loses its ability to absorb complex carbs',
+            'To compensate for a drop in basal metabolic rate during puberty'
+          ],
+          exp: 'Adolescence features the second fastest growth spurt in human life, expanding muscle mass, bone density, and organ size, raising energy demands.',
+          hint: 'Think about the rapid physical expansion in height and lean muscle tissue during puberty.'
+        }
+      },
+      {
+        id: 2, tier: 1,
+        ar: {
+          cat: 'صحة العظام',
+          q: 'ما هما العنصران الأساسيان لبناء كتلة عظمية قوية والوقاية من هشاشة العظام لدى المراهقين؟',
+          options: [
+            'الكالسيوم وفيتامين (د)',
+            'الصوديوم وفيتامين (ب1)',
+            'اليود وفيتامين (هـ)',
+            'السلينيوم وفيتامين (ج)'
+          ],
+          exp: 'تُبنى نحو 45% إلى 50% من الكتلة العظمية البالغة خلال المراهقة، ويحتاج الجسم لفيتامين (د) لامتصاص الكالسيوم وترسيبه في العظام.',
+          hint: 'أحدهما معدن شهير في منتجات الألبان، والآخر فيتامين يُصنع عند التعرض المعتدل للشمس.'
+        },
+        en: {
+          cat: 'Bone Health',
+          q: 'Which two nutrients are most critical for building strong bone mass and preventing future osteoporosis in teens?',
+          options: [
+            'Calcium and Vitamin D',
+            'Sodium and Vitamin B1',
+            'Iodine and Vitamin E',
+            'Selenium and Vitamin C'
+          ],
+          exp: 'Nearly 45–50% of adult skeletal bone mass is formed during adolescence; Vitamin D is essential for intestinal Calcium absorption and bone mineralization.',
+          hint: 'One is the primary mineral in dairy products, and the other is the sunshine vitamin.'
+        }
+      },
+      {
+        id: 3, tier: 1,
+        ar: {
+          cat: 'المعادن الحيوية',
+          q: 'لماذا تزداد حاجة الفتيات المراهقات لعنصر الحديد بشكل خاص بعد البلوغ؟',
+          options: [
+            'لتعويض الفقد الدموي الشهري ودعم تكوين الهيموغلوبين والوقاية من الأنيميا',
+            'لأن الحديد يعمل كمصدر مباشر للسعرات الحرارية السريعة',
+            'لتقليل امتصاص الكالسيوم في الأمعاء الدقيقة',
+            'لأن الفتيات لا يحتجن إلى البروتين في مرحلة البلوغ'
+          ],
+          exp: 'تحتاج الفتيات المراهقات إلى كميات أعلى من الحديد (نحو 15 ملغ يومياً) لتعويض الفاقد الشهري ودعم زيادة حجم الدم والوقاية من أنيميا نقص الحديد.',
+          hint: 'يرتبط هذا المعدن مباشرةً بهيموغلوبين الدم وتعويض الفاقد الشهري.'
+        },
+        en: {
+          cat: 'Essential Minerals',
+          q: 'Why do adolescent girls have an especially elevated requirement for dietary Iron after puberty?',
+          options: [
+            'To replace monthly menstrual blood loss, support hemoglobin synthesis, and prevent anemia',
+            'Because iron acts as a direct source of rapid calories',
+            'To reduce calcium absorption in the small intestine',
+            'Because adolescent girls do not require dietary protein'
+          ],
+          exp: 'Adolescent females need ~15 mg/day of iron to support expanding blood volume during growth and compensate for menstrual iron losses.',
+          hint: 'This mineral forms hemoglobin in red blood cells and replaces monthly blood losses.'
+        }
+      },
+      {
+        id: 4, tier: 1,
+        ar: {
+          cat: 'التداخلات الغذائية',
+          q: 'أي فيتامين يُنصح بتناوله مع مصادر الحديد النباتية (كالبقوليات والسبانخ) لتعزيز امتصاصه؟',
+          options: [
+            'فيتامين ج (Vitamin C)',
+            'فيتامين ك (Vitamin K)',
+            'فيتامين د (Vitamin D)',
+            'فيتامين ب12 (Vitamin B12)'
+          ],
+          exp: 'يساعد فيتامين (ج) المتوفر في الليمون والبرتقال والفلفل الحلو على تحويل الحديد النباتي (غير الهيمي) إلى صيغة يسهل على الأمعاء امتصاصها.',
+          hint: 'يتوفر بغزارة في الحمضيات مثل الليمون والبرتقال والفلفل الرومي.'
+        },
+        en: {
+          cat: 'Nutrient Synergy',
+          q: 'Which vitamin should be paired with plant-based iron sources (like lentils and spinach) to boost iron absorption?',
+          options: [
+            'Vitamin C (Ascorbic Acid)',
+            'Vitamin K',
+            'Vitamin D',
+            'Vitamin B12'
+          ],
+          exp: 'Vitamin C reduces non-heme (plant) iron into a more soluble ferrous state that intestinal cells absorb far more efficiently.',
+          hint: 'Abundant in citrus fruits like lemon, oranges, and bell peppers.'
+        }
+      },
+      {
+        id: 5, tier: 1,
+        ar: {
+          cat: 'المغذيات الكبرى',
+          q: 'ما الدور الحيوي الأساسي للبروتين في تغذية المراهقين؟',
+          options: [
+            'بناء العضلات والأنسجة وتجديد الخلايا وتصنيع الإنزيمات والهرمونات',
+            'تخزين الدهون المشبعة تحت الجلد فقط',
+            'منع امتصاص الفيتامينات الذائبة في الماء',
+            'توفير السكريات الأحادية السريعة فقط'
+          ],
+          exp: 'يوفر البروتين الأحماض الأمينية الضرورية لبناء الكتلة العضلية والأنسجة الجديدة وإنتاج الهرمونات والإنزيمات الداعمة لنمو المراهق.',
+          hint: 'وحداته البنائية هي الأحماض الأمينية المسؤولة عن بناء العضلات والأنسجة.'
+        },
+        en: {
+          cat: 'Macronutrients',
+          q: 'What is the primary physiological role of dietary protein in adolescent nutrition?',
+          options: [
+            'Building muscles and tissues, regenerating cells, and synthesizing enzymes and hormones',
+            'Exclusively storing saturated fat beneath the skin',
+            'Blocking water-soluble vitamin absorption',
+            'Supplying only rapid simple sugars'
+          ],
+          exp: 'Proteins supply essential amino acids needed to build lean muscle mass, repair tissues, and produce hormones, enzymes, and antibodies.',
+          hint: 'Its building blocks are amino acids responsible for tissue growth and repair.'
+        }
+      },
+      {
+        id: 6, tier: 1,
+        ar: {
+          cat: 'السلوك الغذائي',
+          q: 'ما الفائدة الأبرز لتناول وجبة إفطار متوازنة للمراهق قبل اليوم الدراسي؟',
+          options: [
+            'تحسن الانتباه والتركيز والتحصيل الدراسي وتنظم الشهية وسكر الدم',
+            'تبطئ معدل الحرق طوال النهار وتسبب الخمول',
+            'تضعف كفاءة الجهاز الهضمي في الامتصاص',
+            'تزيد الرغبة في تناول المشروبات الغازية'
+          ],
+          exp: 'وجبة الإفطار المتوازنة تمد الدماغ بالجلوكوز المستقر بعد الصيام الليلي، فتعزز الذاكرة والتركيز وتقلل الشراهة للوجبات السريعة.',
+          hint: 'يحتاج الدماغ إمداداً صباحياً متوازناً من الطاقة بعد ساعات النوم ليركز في الدراسة.'
+        },
+        en: {
+          cat: 'Dietary Habits',
+          q: 'What is the key benefit of eating a balanced breakfast before an adolescent’s school day?',
+          options: [
+            'Enhances attention, memory, academic performance, and regulates blood sugar and appetite',
+            'Slows daytime metabolism and causes chronic lethargy',
+            'Weakens digestive nutrient absorption',
+            'Increases cravings for sugary sodas at noon'
+          ],
+          exp: 'A balanced breakfast replenishes brain glucose after overnight fasting, boosting cognitive focus and preventing impulsive junk-food snacking.',
+          hint: 'The brain relies on steady morning fuel after overnight fasting for memory and focus.'
+        }
+      },
+      {
+        id: 7, tier: 1,
+        ar: {
+          cat: 'الوجبات الخفيفة',
+          q: 'أي من الخيارات التالية يُعد وجبة خفيفة (سناك) صحية ومتوازنة للمراهق؟',
+          options: [
+            'حفنة مكسرات غير مملحة مع ثمرة فاكهة وكوب زبادي طبيعي',
+            'رقائق بطاطس مقلية مع مشروب طاقة غني بالكافيين',
+            'حلوى مصنعة مكررة مع مشروب غازي محلى',
+            'مخبوزات بالدهون المهدرجة مع عصير صناعي'
+          ],
+          exp: 'الفاكهة والمكسرات النيئة والزبادي توفر مزيجاً مثالياً من الألياف والبروتين والكالسيوم والدهون الصحية لطاقة مستقرة.',
+          hint: 'اختر البديل الذي يجمع البروتين الطبيعي والألياف والدهون الصحية بلا سكريات مضافة.'
+        },
+        en: {
+          cat: 'Healthy Snacking',
+          q: 'Which of the following represents an ideal, nutrient-dense snack for an adolescent?',
+          options: [
+            'A handful of unsalted nuts with fresh fruit and plain yogurt',
+            'Deep-fried potato chips with a high-caffeine energy drink',
+            'Refined candy bars paired with sugary soda',
+            'Hydrogenated pastries with artificial fruit punch'
+          ],
+          exp: 'Combining yogurt (protein/calcium), fruit (fiber/vitamins), and raw nuts (healthy fats) delivers sustained energy without insulin spikes.',
+          hint: 'Look for whole foods combining protein, fiber, and unsaturated fats without refined sugar.'
+        }
+      },
+      {
+        id: 8, tier: 1,
+        ar: {
+          cat: 'الترطيب الحيوي',
+          q: 'ما المعدل اليومي المناسب لشرب الماء لمعظم المراهقين في الظروف المعتدلة؟',
+          options: [
+            'نحو 6 إلى 8 أكواب كبيرة يومياً وتزداد مع النشاط البدني والحر',
+            'كوبان فقط يومياً مع تعويض الباقي بمشروبات الكافيين',
+            'الاستغناء عن الماء والاكتفاء بالعصائر المعلبة المحلاة',
+            'عدم شرب الماء إلا عند الشعور بجفاف حاد في الفم'
+          ],
+          exp: 'يساعد شرب 6 إلى 8 أكواب من الماء يومياً على حفظ الترطيب، ضبط حرارة الجسم، كفاءة الهضم، والتركيز الذهني.',
+          hint: 'يحتاج الجسم ترطيباً منتظماً يوازي لترين تقريباً ويزداد مع المجهود الرياضي.'
+        },
+        en: {
+          cat: 'Hydration',
+          q: 'What is the recommended daily water intake guideline for most adolescents in moderate climates?',
+          options: [
+            'About 6 to 8 glasses daily, increasing with exercise and heat',
+            'Only 2 glasses daily, replacing the rest with caffeinated drinks',
+            'Replacing plain water entirely with sweetened canned juices',
+            'Drinking water only when experiencing severe dry mouth'
+          ],
+          exp: 'Drinking 6–8+ glasses of water supports thermoregulation, nutrient transport, joint lubrication, and cognitive alertness.',
+          hint: 'Consistent daily hydration around 2 liters—and higher during sports—is essential.'
+        }
+      },
+      {
+        id: 9, tier: 1,
+        ar: {
+          cat: 'الغدد والنمو',
+          q: 'ما المعدن الأساسي لتصنيع هرمونات الغدة الدرقية المنظمة للأيض والنمو الجسدي والعقلي للمراهق؟',
+          options: [
+            'اليود (Iodine)',
+            'الفلوريد (Fluoride)',
+            'الكروم (Chromium)',
+            'الصوديوم (Sodium)'
+          ],
+          exp: 'يدخل اليود المتوفر في الأسماك البحرية والألبان والملح المدعم في إنتاج هرمونات الدرقية الضرورية للنمو وتنظيم معدل الحرق.',
+          hint: 'يُدعّم به ملح الطعام للوقاية من كسل وتضخم الغدة الدرقية.'
+        },
+        en: {
+          cat: 'Endocrine & Growth',
+          q: 'Which mineral is essential for synthesizing thyroid hormones that regulate adolescent metabolism and growth?',
+          options: [
+            'Iodine',
+            'Fluoride',
+            'Chromium',
+            'Sodium'
+          ],
+          exp: 'Iodine (found in seafood, dairy, and iodized salt) is required to synthesize T3 and T4 thyroid hormones governing metabolism and growth.',
+          hint: 'Table salt is globally fortified with this mineral to prevent goiter and hypothyroidism.'
+        }
+      },
+      {
+        id: 10, tier: 1,
+        ar: {
+          cat: 'الجهاز الهضمي',
+          q: 'ما الدور الرئيسي للألياف الغذائية في الخضروات والفواكه والحبوب الكاملة؟',
+          options: [
+            'تدعم صحة الجهاز الهضمي وتمنح شعوراً بالشبع وتنظم سكر الدم',
+            'تسبب الإمساك المزمن وتبطئ حركة الأمعاء',
+            'ترفع الكوليسترول الضار في الأوعية الدموية',
+            'تمنع امتصاص الماء في القولون'
+          ],
+          exp: 'تعزز الألياف الغذائية حركة الأمعاء السليمة، تغذي البكتيريا النافعة، وتساعد على استقرار سكر الدم والاعتدال في الوزن.',
+          hint: 'توجد في قشور النباتات والحبوب الكاملة وتحمي من الإمساك وتنظم السكر.'
+        },
+        en: {
+          cat: 'Digestive Health',
+          q: 'What is the primary physiological benefit of dietary fiber from whole grains, fruits, and vegetables?',
+          options: [
+            'Supports digestive regularity, promotes satiety, and stabilizes blood glucose',
+            'Causes chronic constipation and halts gut motility',
+            'Raises harmful LDL cholesterol in arteries',
+            'Prevents water balance in the digestive tract'
+          ],
+          exp: 'Dietary fiber nourishes beneficial gut microbiota, prevents constipation, slows glucose absorption, and supports healthy weight management.',
+          hint: 'Found in whole grains and produce, it keeps digestion smooth and curbs rapid sugar spikes.'
+        }
+      },
+
+      // TIER 2 (Questions 11-20)
+      {
+        id: 11, tier: 2,
+        ar: {
+          cat: 'المشروبات وصحة العظام',
+          q: 'ما أبرز الأضرار الصحية للإفراط في المشروبات الغازية ومشروبات الطاقة لدى المراهقين؟',
+          options: [
+            'تسوس الأسنان، زيادة الوزن، اضطرابات النوم، وإضعاف كثافة العظام',
+            'تقوية مينا الأسنان وزيادة ترسيب الكالسيوم',
+            'تحسين جودة النوم العميق وتهدئة الجهاز العصبي',
+            'تعويض نقص الحديد والفيتامينات بكفاءة'
+          ],
+          exp: 'تحتوي هذه المشروبات على سكريات عالية وكافيين وحمض الفوسفوريك، مما يزاحم شرب الحليب ويخل بتوازن الكالسيوم ويسبب الأرق والسمنة.',
+          hint: 'تجمع بين السكر المفرط، الكافيين المؤرق، وحمض الفوسفوريك الضار بالعظام والأسنان.'
+        },
+        en: {
+          cat: 'Beverages & Bone Health',
+          q: 'What are the major health risks of excessive soda and energy drink consumption among adolescents?',
+          options: [
+            'Dental caries, weight gain, sleep disturbances, and reduced bone mineral density',
+            'Strengthened tooth enamel and enhanced calcium retention',
+            'Deeper restorative sleep and nervous system relaxation',
+            'Effective correction of iron and vitamin deficiencies'
+          ],
+          exp: 'High sugar, excessive caffeine, and phosphoric acid in sodas/energy drinks displace milk intake, impair calcium balance, and disrupt sleep.',
+          hint: 'They combine excess sugar, sleep-disrupting caffeine, and bone-depleting phosphoric acid.'
+        }
+      },
+      {
+        id: 12, tier: 2,
+        ar: {
+          cat: 'تغذية الدماغ والقلب',
+          q: 'ما نوع الدهون المفيدة التي تدعم نضج الدماغ والذاكرة وصحة القلب لدى المراهقين؟',
+          options: [
+            'الدهون غير المشبعة وأحماض أوميغا-3 الدهنية',
+            'الدهون المتحولة (المهدرجة صناعياً)',
+            'الدهون المشبعة الزائدة في المقليات المتكررة',
+            'الشحوم الصناعية الصلبة'
+          ],
+          exp: 'تدخل أحماض أوميغا-3 والدهون غير المشبعة (في الأسماك الدهنية والجوز وزيت الزيتون) في بناء أغشية خلايا الدماغ وامتصاص الفيتامينات الذائبة في الدهون.',
+          hint: 'توجد في أسماك السلمون والسردين وعين الجمل وتُعرف بصديقة الدماغ والقلب.'
+        },
+        en: {
+          cat: 'Brain & Heart Nutrition',
+          q: 'Which type of dietary fat supports adolescent brain maturation, memory, and cardiovascular health?',
+          options: [
+            'Unsaturated fats and Omega-3 fatty acids',
+            'Industrial trans fats (partially hydrogenated oils)',
+            'Oxidized fats from repeatedly reheated frying oils',
+            'Solid synthetic shortenings'
+          ],
+          exp: 'Omega-3 fatty acids (DHA/EPA) and unsaturated fats build neuronal cell membranes, reduce inflammation, and aid absorption of vitamins A, D, E, and K.',
+          hint: 'Found in fatty fish, walnuts, and olive oil—renowned for cognitive and heart protection.'
+        }
+      },
+      {
+        id: 13, tier: 2,
+        ar: {
+          cat: 'المناعة والبلوغ',
+          q: 'ما أهمية عنصر الزنك (Zinc) في مرحلة المراهقة؟',
+          options: [
+            'يدعم النمو الطولي والنضج البدني والتئام الجروح وكفاءة الجهاز المناعي',
+            'يسبب ضعف المناعة وتساقط الشعر عند تناوله من الغذاء الطبيعي',
+            'يمنع الخلايا من الاستفادة من الأحماض الأمينية',
+            'يؤدي إلى تثبيط التئام الأنسجة'
+          ],
+          exp: 'يشارك الزنك في عمل مئات الإنزيمات المسؤولة عن انقسام الخلايا والنمو الطولي والنضج المناعي والجنسي خلال فترة المراهقة.',
+          hint: 'معدن أساسي للإنزيمات والمناعة والتئام الجروح، يتوفر في اللحوم والبقوليات والمكسرات.'
+        },
+        en: {
+          cat: 'Immunity & Maturation',
+          q: 'Why is the mineral Zinc particularly vital during adolescence?',
+          options: [
+            'Supports linear growth, sexual maturation, wound healing, and immune defense',
+            'Weakens immunity when consumed from natural whole foods',
+            'Blocks cellular protein synthesis',
+            'Inhibits tissue repair and cell division'
+          ],
+          exp: 'Zinc activates over 300 enzymes governing DNA synthesis, linear height growth, pubertal development, wound repair, and immune function.',
+          hint: 'A key trace mineral for immunity, growth enzymes, and tissue healing.'
+        }
+      },
+      {
+        id: 14, tier: 2,
+        ar: {
+          cat: 'اضطرابات التغذية',
+          q: 'لماذا يُحذر مختصو التغذية المراهقين من اتباع الحميات الغذائية القاسية (الرجيم القاسي)؟',
+          options: [
+            'لأنها تحرم الجسم من عناصر النمو وتفكك العضلات وتضر بالصحة الجسدية والنفسية',
+            'لأنها تزيد الطول وكثافة العظام بشكل مفرط',
+            'لأنها تبني الكتلة العضلية دون الحاجة للبروتين',
+            'لأنها ترفع مستوى التركيز والنشاط الذهني'
+          ],
+          exp: 'الحميات القاسية تسبب نقص الفيتامينات والمعادن، تبطئ الأيض الأساسي، تضعف النمو، وترفع خطر اضطرابات الأكل مثل فقدان الشهية العصبي.',
+          hint: 'التجويع الحاد في مرحلة البناء يستنزف العضلات والمعادن ويؤذي التوازن النفسي والهرموني.'
+        },
+        en: {
+          cat: ' disordered Eating Prevention',
+          q: 'Why do clinical nutritionists strongly warn adolescents against severe crash diets?',
+          options: [
+            'They deprive the growing body of essential nutrients, break down muscle, and harm mental and physical health',
+            'They cause excessive bone density and rapid height increases',
+            'They build lean muscle mass without requiring protein',
+            'They sustainably boost classroom concentration and metabolic rate'
+          ],
+          exp: 'Crash dieting during growth causes micronutrient deficiencies, muscle loss, lowered metabolic rate, hormonal disruption, and eating disorder risk.',
+          hint: 'Severe calorie deprivation during active growth harms muscles, hormones, and psychological well-being.'
+        }
+      },
+      {
+        id: 15, tier: 2,
+        ar: {
+          cat: 'الفيتامينات العصبية',
+          q: 'أي فيتامين يتوفر أساساً في الأغذية الحيوانية أو المدعمة ويدعم سلامة الأعصاب وتكوين كريات الدم الحمراء؟',
+          options: [
+            'فيتامين ب12 (Cobalamin)',
+            'فيتامين ج (Ascorbic Acid)',
+            'فيتامين هـ (Tocopherol)',
+            'فيتامين ك (Phylloquinone)'
+          ],
+          exp: 'فيتامين ب12 ضروري لتصنيع غلاف الميالين العصبي وكريات الدم الحمراء؛ لذا يحتاج المراهق النباتي الكلي لأغذية مدعمة أو إشراف غذائي.',
+          hint: 'يُسمى الكوبالامين، ويحتاج النباتيون الكليون للانتباه لمصادره المدعمة.'
+        },
+        en: {
+          cat: 'Neurological Vitamins',
+          q: 'Which vitamin is found primarily in animal or fortified foods and is essential for nerve myelin and red blood cells?',
+          options: [
+            'Vitamin B12 (Cobalamin)',
+            'Vitamin C (Ascorbic Acid)',
+            'Vitamin E (Tocopherol)',
+            'Vitamin K'
+          ],
+          exp: 'Vitamin B12 maintains nerve myelin sheaths and DNA synthesis in red blood cells; strict vegan teens require fortified foods or supplementation.',
+          hint: 'Known as Cobalamin—essential for nerves and red blood cell formation.'
+        }
+      },
+      {
+        id: 16, tier: 2,
+        ar: {
+          cat: 'التغذية الرياضية',
+          q: 'ما الدور الحيوي المشترك للبوتاسيوم والصوديوم لدى المراهقين الممارسين للرياضة؟',
+          options: [
+            'تنظيم توازن السوائل والنبضات العصبية وانقباض العضلات ومنع التشنجات',
+            'بناء مينا الأسنان بدلاً من الكالسيوم',
+            'تحويل الألياف إلى دهون ثلاثية',
+            'تخزين الفيتامينات الذائبة في الماء داخل العظام'
+          ],
+          exp: 'تعمل الكهارل (Electrolytes) كالبوتاسيوم (في الموز والبطاطس والورقيات) والصوديوم المعتدل على ضبط التوازن الأسموزي وكفاءة العضلات.',
+          hint: 'من أهم الأملاح المعدنية (الكهارل) التي تحمي العضلات من الشد العضلي أثناء التمرين.'
+        },
+        en: {
+          cat: 'Sports Nutrition',
+          q: 'What combined physiological role do Potassium and Sodium play in physically active adolescents?',
+          options: [
+            'Regulating fluid balance, nerve impulses, and muscle contractions to prevent cramps',
+            'Replacing calcium in tooth enamel formation',
+            'Converting dietary fiber into triglycerides',
+            'Storing water-soluble vitamins inside bone tissue'
+          ],
+          exp: 'Electrolytes like potassium and moderate sodium maintain osmotic fluid balance, nerve transmission, and smooth muscle contraction during exercise.',
+          hint: 'Key electrolytes lost in sweat that prevent muscle cramping.'
+        }
+      },
+      {
+        id: 17, tier: 2,
+        ar: {
+          cat: 'سكر الدم وصحة البشرة',
+          q: 'كيف يؤثر الإفراط في السكريات المكررة ذات المؤشر الجلايسيمي المرتفع على بشرة المراهقين؟',
+          options: [
+            'يرفع الإنسولين وعامل النمو (IGF-1) فيحفز الغدد الدهنية ويزيد حب الشباب',
+            'يغلق المسام الدهنية ويمنع الالتهابات الجلدية تماماً',
+            'لا يُمتص في الدم بل يطرح دون أي تأثير هرموني',
+            'يرفع إنتاج الكولاجين الطبيعي ويمنع البثور'
+          ],
+          exp: 'الارتفاع الحاد والمتكرر في سكر الدم يرفع الإنسولين و(IGF-1)، مما ينشط إفراز الزهم والالتهاب الجلدي المرتبط بحب الشباب.',
+          hint: 'قفزات سكر الدم السريعة ترفع الإنسولين الذي يحفز إفراز الدهون في البشرة.'
+        },
+        en: {
+          cat: 'Glycemic Load & Skin',
+          q: 'How does excessive intake of high-glycemic refined sugars affect adolescent skin health?',
+          options: [
+            'Spikes insulin and IGF-1, stimulating sebum production and worsening acne',
+            'Naturally shrinks sebaceous glands and eliminates inflammation',
+            'Passes unabsorbed without any hormonal response',
+            'Directly prevents acne breakouts by boosting skin hydration'
+          ],
+          exp: 'Frequent blood sugar spikes elevate insulin and IGF-1, increasing sebum output and inflammatory pathways tied to adolescent acne.',
+          hint: 'Rapid glucose spikes trigger insulin surges that overstimulate skin oil glands.'
+        }
+      },
+      {
+        id: 18, tier: 2,
+        ar: {
+          cat: 'الميكروبيوم والمناعة',
+          q: 'ما الفائدة الصحية لتناول الأغذية الغنية بالبروبيوتيك مثل الزبادي واللبن الرائب للمراهق؟',
+          options: [
+            'تعزز توازن بكتيريا الأمعاء النافعة، تدعم المناعة، وتحسن الهضم والمزاج',
+            'تمنع امتصاص الكالسيوم والمغنيسيوم في الأمعاء',
+            'ترفع نسبة الدهون المتحولة في الدم',
+            'تضعف الحاجز المخاطي للجهاز الهضمي'
+          ],
+          exp: 'تدعم البكتيريا النافعة (Probiotics) صحة الجهاز الهضمي والمناعة وتساهم عبر محور الأمعاء-الدماغ في تحسين المزاج وتقليل التوتر.',
+          hint: 'تحتوي على كائنات دقيقة نافعة تدعم الهضم والمناعة وتتواصل إيجابياً مع الدماغ.'
+        },
+        en: {
+          cat: 'Gut Microbiome',
+          q: 'How do probiotic-rich fermented dairy foods like natural yogurt benefit adolescents?',
+          options: [
+            'Balance beneficial gut flora, strengthen immunity, and support digestion and mood',
+            'Block intestinal calcium and magnesium absorption',
+            'Increase synthetic trans fats in the bloodstream',
+            'Weaken the intestinal mucosal barrier'
+          ],
+          exp: 'Probiotics reinforce gut barrier integrity, modulate immune responses, and support emotional well-being via the gut-brain axis.',
+          hint: 'Live beneficial cultures that support digestion, immunity, and gut-brain health.'
+        }
+      },
+      {
+        id: 19, tier: 2,
+        ar: {
+          cat: 'الإبصار والمناعة',
+          q: 'ما الفيتامين الأساسي لصحة الإبصار الليلي وسلامة الجلد والأغشية المخاطية؟',
+          options: [
+            'فيتامين أ (Vitamin A)',
+            'فيتامين ك (Vitamin K)',
+            'فيتامين ب1 (Thiamine)',
+            'فيتامين ب6 (Pyridoxine)'
+          ],
+          exp: 'فيتامين (أ) ومصادره كالجزر والبطاطا الحلوة والورقيات الداكنة ومنتجات الألبان ضروري لشبكية العين وسلامة الأنسجة الطلائية والمناعة.',
+          hint: 'يتوفر البيتا-كاروتين المكون له بكثرة في الجزر والبطاطا الحلوة.'
+        },
+        en: {
+          cat: 'Vision & Epithelial Health',
+          q: 'Which vitamin is essential for night vision, healthy skin, and intact mucosal barriers?',
+          options: [
+            'Vitamin A',
+            'Vitamin K',
+            'Vitamin B1 (Thiamine)',
+            'Vitamin B6'
+          ],
+          exp: 'Vitamin A (and beta-carotene in carrots, sweet potatoes, and leafy greens) forms retinal rhodopsin for low-light vision and maintains epithelial defenses.',
+          hint: 'Its precursor beta-carotene gives carrots and sweet potatoes their rich orange color.'
+        }
+      },
+      {
+        id: 20, tier: 2,
+        ar: {
+          cat: 'تخطيط الوجبات',
+          q: 'ما الذي يميز الوجبة اليومية المتوازنة للمراهق وفق إرشادات التغذية الحديثة؟',
+          options: [
+            'الجمع بين الكربوهيدرات المعقدة، البروتين الجيد، الدهون الصحية، والخضروات والفواكه',
+            'الاعتماد على النشويات البيضاء والحلويات فقط',
+            'تناول وجبة واحدة ضخمة في وقت متأخر ليلاً',
+            'استبدال الطعام الطبيعي بالمكملات الصناعية'
+          ],
+          exp: 'نموذج الطبق المتوازن يجمع نصف الطبق خضروات وفواكه، وربعه حبوباً كاملة، وربعه بروتيناً صحياً مع دهون مفيدة لتغطية كافة الاحتياجات.',
+          hint: 'التوازن يعني تنوع المجموعات الغذائية الأربع معاً في تناغم صحي.'
+        },
+        en: {
+          cat: 'Meal Planning',
+          q: 'What characterizes a well-balanced daily meal for an adolescent according to modern nutrition guidelines?',
+          options: [
+            'Combining complex carbohydrates, quality protein, healthy fats, and colorful fruits and vegetables',
+            'Relying exclusively on refined starches and sweets',
+            'Eating only one oversized meal late at night',
+            'Replacing whole foods entirely with synthetic supplements'
+          ],
+          exp: 'A balanced plate pairs vegetables/fruits (50%), whole grains (25%), and lean protein (25%) with healthy unsaturated fats.',
+          hint: 'True nutritional balance integrates complex energy, tissue-building protein, produce, and healthy fats.'
+        }
+      },
+
+      // TIER 3 (Questions 21-30)
+      {
+        id: 21, tier: 3,
+        ar: {
+          cat: 'ذروة الكتلة العظمية',
+          q: 'ما أهمية مفهوم "ذروة الكتلة العظمية" (Peak Bone Mass) خلال سنوات المراهقة؟',
+          options: [
+            'لأن أقصى رصيد لكثافة العظام يُبنى في المراهقة وبداية العشرينات ويمثل وقاية مدى الحياة',
+            'لأن العظام تتوقف نهائياً عن التجدد الخلوي بعد سن الحادية عشرة',
+            'لأن الجسم يضاعف طوله بعد سن الأربعين بمكملات الكالسيوم',
+            'لأن كثافة العظام لا تتأثر بالغذاء أو الرياضة مطلقاً'
+          ],
+          exp: 'تمثل المراهقة نافذة الفرصة الذهبية لإيداع أقصى كثافة معدنية في العظام؛ وكل زيادة بنسبة 10% في ذروة الكتلة العظمية تقلل خطر الكسور لاحقاً بشكل كبير.',
+          hint: 'تُشبه العظام في المراهقة "بنكاً حيوياً" يُودع فيه الرصيد الأكبر قبل إغلاق نافذة البناء السريع.'
+        },
+        en: {
+          cat: 'Peak Bone Mass',
+          q: 'Why is achieving optimal "Peak Bone Mass" during adolescence clinically critical?',
+          options: [
+            'Maximum bone density is banked during adolescence and early twenties, protecting against osteoporosis for life',
+            'Bone remodeling stops completely after age eleven',
+            'Height continues doubling after age forty with calcium pills',
+            'Bone mineral density is unaffected by diet or weight-bearing exercise'
+          ],
+          exp: 'Adolescence is the golden window to bank bone mineral density; maximizing peak bone mass dramatically lowers fracture and osteoporosis risk later in life.',
+          hint: 'Think of teen bones as a biological savings bank with a limited-time deposit window.'
+        }
+      },
+      {
+        id: 22, tier: 3,
+        ar: {
+          cat: 'معوقات الامتصاص',
+          q: 'لماذا يُنصح بفصل شرب الشاي الداكن عن الوجبات الغنية بالحديد بساعة إلى ساعتين لدى المراهقين؟',
+          options: [
+            'لأن مركبات التانينات ترتبط بالحديد النباتي في الأمعاء وتعيق امتصاصه بدرجة ملحوظة',
+            'لأن الشاي يحول الحديد إلى دهون مشبعة في المعدة',
+            'لأن الشاي يتلف فيتامين د الموجود في ضوء الشمس',
+            'لأن السوائل الدافئة توقف عمل البنكرياس'
+          ],
+          exp: 'تتحد مركبات التانين والبوليفينول في الشاي مع الحديد غير الهيمي مكونة مركبات غير قابلة للامتصاص، مما يزيد خطر الأنيميا عند شربه مع الأكل مباشرة.',
+          hint: 'تحتوي أوراق الشاي على مركبات قابضة (التانينات) تمسك بالحديد وتمنع عبوره للدم.'
+        },
+        en: {
+          cat: 'Absorption Inhibitors',
+          q: 'Why should adolescents wait 1–2 hours after iron-rich meals before drinking dark tea?',
+          options: [
+            'Tannins and polyphenols bind non-heme iron in the gut and significantly inhibit its absorption',
+            'Tea chemically converts dietary iron into saturated fat',
+            'Tea destroys sunshine-derived Vitamin D in the skin',
+            'Warm beverages halt pancreatic enzyme secretion'
+          ],
+          exp: 'Polyphenols and tannins in tea form insoluble complexes with plant iron, cutting absorption by over 50% when consumed simultaneously with meals.',
+          hint: 'Astringent compounds in tea (tannins) bind iron molecules in the digestive tract.'
+        }
+      },
+      {
+        id: 23, tier: 3,
+        ar: {
+          cat: 'تكامل البروتينات',
+          q: 'كيف يمكن للمراهق الحصول على "بروتين نباتي متكامل" يحتوي كافة الأحماض الأمينية الأساسية؟',
+          options: [
+            'بالدمج الغذائي بين البقوليات والحبوب الكاملة (مثل العدس مع الأرز أو الفول مع الخبز الأسمر)',
+            'بتناول نوع واحد من الفاكهة الحلوة بكميات كبيرة',
+            'بإضافة السكر والزيت إلى الخضروات الورقية فقط',
+            'بقلي البطاطس في زيوت نباتية مكررة'
+          ],
+          exp: 'تكمل الحبوب الكاملة والبقوليات بعضها البعض في محتوى الأحماض الأمينية (اللايسين والميثيونين)، ما يمنح بروتيناً عالي القيمة الحيوية للنمو.',
+          hint: 'جمع الحبوب مع البقوليات قاعدة ذهبية تكمل نقص الأحماض الأمينية في كل منهما.'
+        },
+        en: {
+          cat: 'Protein Complementation',
+          q: 'How can an adolescent obtain a "complete protein" profile containing all nine essential amino acids from plant foods?',
+          options: [
+            'By pairing legumes with whole grains (such as lentils with rice or fava beans with whole-wheat bread)',
+            'By eating large amounts of a single sweet fruit',
+            'By adding refined oil and sugar to leafy greens',
+            'By deep-frying potatoes in corn oil'
+          ],
+          exp: 'Legumes are rich in lysine while grains are rich in methionine; combining them provides a complete essential amino acid profile for tissue growth.',
+          hint: 'Pairing grains + legumes complements their limiting amino acids.'
+        }
+      },
+      {
+        id: 24, tier: 3,
+        ar: {
+          cat: 'كيمياء الدهون',
+          q: 'لماذا تُصنف الدهون المتحولة الصناعية (Trans Fats) كأخطر أنواع الدهون على القلب والشرايين؟',
+          options: [
+            'لأنها ترفع الكوليسترول الضار (LDL) وتخفض الكوليسترول النافع (HDL) معاً وتسبب التهاب الأوعية',
+            'لأنها ترفع الكوليسترول النافع وتمنع تخثر الدم',
+            'لأنها تتحول في المعدة إلى ألياف غير ذائبة',
+            'لأنها تفتقر للسعرات الحرارية فتسبب الهزال'
+          ],
+          exp: 'للزيوت المهدرجة جزئياً (الدهون المتحولة) ضرر مزدوج على الأوعية الدموية منذ سن المراهقة عبر رفع LDL وخفض HDL وإضعاف حساسية الإنسولين.',
+          hint: 'تؤذي الشرايين بتأثير مزدوج متعاكس: ترفع الكوليسترول الضار وتخفض النافع في آنٍ واحد.'
+        },
+        en: {
+          cat: 'Lipid Biochemistry',
+          q: 'Why are industrial trans fats considered the most harmful dietary fats for cardiovascular health?',
+          options: [
+            'They simultaneously raise harmful LDL cholesterol, lower protective HDL cholesterol, and trigger vascular inflammation',
+            'They elevate protective HDL cholesterol to excessive levels',
+            'They turn into insoluble fiber inside the stomach',
+            'They contain zero calories and cause rapid weight loss'
+          ],
+          exp: 'Partially hydrogenated trans fats inflict dual damage—raising atherogenic LDL while depleting protective HDL and promoting insulin resistance.',
+          hint: 'They deliver a double blow: raising bad LDL while lowering good HDL.'
+        }
+      },
+      {
+        id: 25, tier: 3,
+        ar: {
+          cat: 'تغذية المراهق الرياضي',
+          q: 'ما مخاطر متلازمة نقص الطاقة النسبية في الرياضة (RED-S) عند ممارسة المراهق رياضة عنيفة مع تقليل الأكل بشدة؟',
+          options: [
+            'اضطراب الهرمونات، تراجع كثافة العظام وخطر الكسور الإجهادية، وضعف المناعة والأداء',
+            'تضاعف كثافة العظام وسرعة الاستشفاء العضلي تلقائياً',
+            'ارتفاع مخزون الحديد والكالسيوم فوق المعدل الطبيعي',
+            'زيادة إفراز هرمون النمو دون الحاجة للسعرات'
+          ],
+          exp: 'عدم تغطية الطاقة المستهلكة في التمرين والنمو يضع الجسم في حالة طوارئ فسيولوجية تعطل الهرمونات البنائية وتستنزف معادن العظام.',
+          hint: 'تحدث عندما يتجاوز المجهود الرياضي الشاق كمية الغذاء المتناول بكثير.'
+        },
+        en: {
+          cat: 'Adolescent Athlete Health',
+          q: 'What is the risk of Relative Energy Deficiency in Sport (RED-S) when teen athletes train heavily while under-eating?',
+          options: [
+            'Hormonal disruption, bone density loss, stress fractures, and impaired immunity and performance',
+            'Automatic doubling of bone mineral density and muscle recovery',
+            'Excessive accumulation of iron and calcium stores',
+            'Maximal growth hormone output without caloric intake'
+          ],
+          exp: 'Insufficient energy intake relative to exercise and growth suppresses reproductive/metabolic hormones and demineralizes young bones.',
+          hint: 'Occurs when intense training energy expenditure far exceeds dietary calorie intake.'
+        }
+      },
+      {
+        id: 26, tier: 3,
+        ar: {
+          cat: 'انقسام الخلايا والدم',
+          q: 'ما الدور الحيوي للفولات (فيتامين ب9) المتوفر في الورقيات الخضراء والبقوليات خلال طفرة نمو المراهقين؟',
+          options: [
+            'تصنيع الحمض النووي (DNA) لدعم الانقسام الخلوي السريع وتكوين كريات الدم السليمة',
+            'هضم الدهون المشبعة داخل المرارة فقط',
+            'إيقاف تعرق الجلد لحفظ درجة الحرارة',
+            'العمل كبديل للكالسيوم في صلابة المفاصل'
+          ],
+          exp: 'مع التسارع الكبير في تكاثر الخلايا وزيادة الأنسجة في المراهقة، تشتد الحاجة للفولات لضمان سلامة بناء الـ DNA والوقاية من الأنيميا.',
+          hint: 'فيتامين من مجموعة (ب) يشتهر بوجوده في الأوراق الخضراء ويدير انقسام الخلايا.'
+        },
+        en: {
+          cat: 'Cellular Growth & Blood',
+          q: 'Why is Folate (Vitamin B9) from leafy greens and legumes vital during the adolescent growth spurt?',
+          options: [
+            'Essential for DNA synthesis, rapid cell division, and healthy red blood cell maturation',
+            'Exclusively digests saturated fats inside the gallbladder',
+            'Prevents skin perspiration during exercise',
+            'Substitutes for calcium in joint cartilage'
+          ],
+          exp: 'Rapid tissue expansion and red blood cell production during adolescence require folate for accurate DNA replication and prevention of megaloblastic anemia.',
+          hint: 'A B-vitamin abundant in green foliage that drives DNA replication and cell division.'
+        }
+      },
+      {
+        id: 27, tier: 3,
+        ar: {
+          cat: 'الأيض الخلوي',
+          q: 'ما الأهمية الكيميائية الحيوية لعنصر المغنيسيوم في جسم المراهق؟',
+          options: [
+            'تفعيل جزيئات الطاقة (ATP)، المساهمة في تنشيط فيتامين (د)، واسترخاء العضلات والأعصاب',
+            'منع ارتباط الأكسجين بالهيموغلوبين في الدم',
+            'تحويل السكريات إلى أملاح صوديوم',
+            'تثبيط امتصاص البوتاسيوم والماء'
+          ],
+          exp: 'المغنيسيوم الموجود في المكسرات والبذور والحبوب الكاملة ضروري لتنشيط فيتامين (د) حيوياً ولإنتاج الطاقة الخلوية وتهدئة الجهاز العصبي.',
+          hint: 'معدن يساعد فيتامين (د) على العمل ويحمي العضلات والأعصاب من التشنج والإجهاد.'
+        },
+        en: {
+          cat: 'Cellular Metabolism',
+          q: 'What biochemical roles does Magnesium play in an adolescent’s body?',
+          options: [
+            'Activates cellular energy (ATP), aids Vitamin D activation, and supports muscle and nerve relaxation',
+            'Blocks oxygen binding to hemoglobin',
+            'Converts carbohydrates into sodium salts',
+            'Inhibits water and potassium transport'
+          ],
+          exp: 'Magnesium (in nuts, seeds, legumes, and whole grains) is a cofactor for ATP energy production, enzymatic Vitamin D activation, and neuromuscular calm.',
+          hint: 'Required to activate Vitamin D and stabilize cellular ATP energy and muscle relaxation.'
+        }
+      },
+      {
+        id: 28, tier: 3,
+        ar: {
+          cat: 'الاستشفاء الرياضي',
+          q: 'ما التكوين الأمثل لوجبة ما بعد التمرين الرياضي للمراهق لدعم النمو والاستشفاء العضلي؟',
+          options: [
+            'كربوهيدرات صحية لتعويض الجليكوجين + بروتين لإصلاح وبناء الألياف العضلية + سوائل',
+            'دهون مقلية ثقيلة فقط بدون ماء أو بروتين',
+            'مشروب غازي عالي السكر والكافيين على معدة فارغة',
+            'الامتناع التام عن الطعام والماء لعدة ساعات بعد المجهود'
+          ],
+          exp: 'يحتاج جسم المراهق بعد النشاط البدني إلى الكربوهيدرات لإعادة ملء مخازن الطاقة العضلية، والبروتين لترميم وبناء العضلات، والماء لتعويض العرق.',
+          hint: 'قاعدة الاستشفاء الذهبية: وقود تعويضي + مادة بناء عضلي + ترطيب.'
+        },
+        en: {
+          cat: 'Exercise Recovery',
+          q: 'What is the optimal post-exercise recovery meal composition for an active adolescent?',
+          options: [
+            'Healthy carbohydrates to replenish glycogen + protein for muscle repair + fluids for rehydration',
+            'Heavy deep-fried fats alone without water or protein',
+            'High-caffeine sugary soda on an empty stomach',
+            'Complete fasting from food and water for hours after training'
+          ],
+          exp: 'Post-workout nutrition combines complex carbs to restore muscle glycogen, quality protein to stimulate muscle fiber repair, and fluids/electrolytes.',
+          hint: 'The recovery triad: glycogen refueling + muscle-building protein + hydration.'
+        }
+      },
+      {
+        id: 29, tier: 3,
+        ar: {
+          cat: 'النوم وهرمونات الشهية',
+          q: 'كيف يؤثر السهر المزمن وقلة النوم لدى المراهقين على الهرمونات المنظمة للشهية والوزن؟',
+          options: [
+            'يرفع هرمون الجوع (الغريلين) ويخفض هرمون الشبع (اللبتين) فيزيد الشراهة للسكريات',
+            'يرفع هرمون الشبع ويقلل الشهية للحلويات تماماً',
+            'يضاعف إفراز هرمون النمو الليلي أثناء اليقظة',
+            'لا يؤثر إطلاقاً على هرمونات الشهية أو الإنسولين'
+          ],
+          exp: 'الحرمان من النوم الكافي (8–10 ساعات للمراهق) يخل بتوازن اللبتين والغريلين، ويضعف حساسية الإنسولين ويقلل إفراز هرمون النمو الليلي.',
+          hint: 'قلة النوم تنشط هرمون الجوع (الغريلين) وتضعف إشارات الشبع (اللبتين).'
+        },
+        en: {
+          cat: 'Sleep & Appetite Hormones',
+          q: 'How does chronic sleep deprivation in adolescents disrupt appetite-regulating hormones?',
+          options: [
+            'Increases ghrelin (hunger hormone) and decreases leptin (satiety hormone), driving sugar cravings',
+            'Boosts leptin and eliminates cravings for sweets',
+            'Maximizes nocturnal growth hormone secretion while awake',
+            'Has zero physiological impact on insulin or appetite'
+          ],
+          exp: 'Insufficient sleep (<8 hours) elevates ghrelin, suppresses leptin, reduces insulin sensitivity, and blunts deep-sleep growth hormone release.',
+          hint: 'Lack of sleep raises the hunger signal (ghrelin) while muting fullness (leptin).'
+        }
+      },
+      {
+        id: 30, tier: 3,
+        ar: {
+          cat: 'التكامل الصحي الشامل',
+          q: 'كيف تتكامل التغذية السليمة مع النشاط البدني المنتظم في بناء صحة المراهق؟',
+          options: [
+            'معاً يعززان النمو السليم، قوة العظام والعضلات، اللياقة القلبية، والصحة النفسية والذهنية',
+            'ممارسة الرياضة تغني تماماً عن تناول البروتين والفيتامينات',
+            'الغذاء المتوازن يغني عن أي حركة بدنية لبناء العضلات',
+            'لا توجد علاقة تكاملية بين الغذاء والنشاط البدني'
+          ],
+          exp: 'يوفر الغذاء المتوازن عناصر البناء والطاقة، بينما يمنح النشاط البدني التحفيز الميكانيكي والهرموني لترسيب الكالسيوم في العظام وبناء العضلات وتحسين المزاج.',
+          hint: 'الغذاء يوفر حجر البناء، والحركة تعطي إشارة البناء للعظام والعضلات والمزاج.'
+        },
+        en: {
+          cat: 'Holistic Teen Health',
+          q: 'How do balanced nutrition and regular physical activity work together in adolescent health?',
+          options: [
+            'Together they optimize growth, bone and muscle strength, cardiorespiratory fitness, and mental well-being',
+            'Exercise completely eliminates the need for dietary protein and vitamins',
+            'Healthy food builds strong muscles and bones without any physical movement',
+            'There is no physiological synergy between diet and exercise'
+          ],
+          exp: 'Nutrition supplies essential building blocks and fuel, while physical activity provides the mechanical stimulus for bone mineralization, muscle growth, and endorphin release.',
+          hint: 'Nutrition provides the raw building blocks; physical movement triggers bone and muscle strengthening.'
+        }
+      }
+    ];
+
+    /* =========================================================================
+       4. MAIN APPLICATION STATE & BILINGUAL / THEME CONTROLLER
+       ========================================================================= */
+    const QUESTION_DURATION = 45; // Mandatory 45s timer per question
+
+    const App = {
+      lang: 'ar',
+      theme: 'light',
+      playerName: '',
+
+      deck: [],            // 15 questions (id + perm array of option indices [0..3])
+      backups: { 1: [], 2: [], 3: [] },
+      currentIdx: 0,
+      selectedSlot: null,  // 0..3
+      isAnswered: false,
+      eliminatedSlots: [],
+      lastResultState: 'gameover', // 'victory' | 'walkaway' | 'gameover'
+      certSerial: '',
+
+      score: 0,
+      safeScore: 0,
+      correctTotal: 0,
+      history: [],         // { qId, perm, chosenSlot, timedOut, isCorrect }
+
+      lifelines: { '5050': true, audience: true, expert: true, swap: true },
+      lastAudienceWeights: null,
+
+      timeLeft: QUESTION_DURATION,
+      timerHandle: null,
+
+      safeGet(key) {
+        try { return window.localStorage.getItem(key); } catch (e) { return null; }
+      },
+
+      safeSet(key, val) {
+        try { window.localStorage.setItem(key, val); } catch (e) {}
+      },
+
+      init() {
+        const savedTheme = this.safeGet('edu_million_theme_v2');
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+          this.theme = savedTheme;
+        } else {
+          this.theme = 'light'; // Default to Day Mode
+        }
+        const savedLang = this.safeGet('edu_million_lang');
+        if (savedLang === 'ar' || savedLang === 'en') {
+          this.lang = savedLang;
+        }
+        const savedName = this.safeGet('edu_million_player');
+        if (savedName) {
+          document.getElementById('player-name-input').value = savedName;
+        }
+
+        this.applyTheme();
+        this.applyLanguage();
+      },
+
+      shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      },
+
+      /* ==================== THEME & LANGUAGE ==================== */
+      toggleTheme() {
+        SoundEngine.playClick();
+        const chk = document.getElementById('uiv-theme-toggle');
+        this.theme = (chk && chk.checked) ? 'dark' : 'light';
+        this.safeSet('edu_million_theme_v2', this.theme);
+        this.applyTheme();
+      },
+
+      applyTheme() {
+        document.documentElement.setAttribute('data-theme', this.theme);
+        const chk = document.getElementById('uiv-theme-toggle');
+        if (chk) chk.checked = (this.theme === 'dark');
+      },
+
+      toggleLanguage() {
+        SoundEngine.playClick();
+        const chk = document.getElementById('uiv-lang-toggle');
+        this.lang = (chk && chk.checked) ? 'en' : 'ar';
+        this.safeSet('edu_million_lang', this.lang);
+        this.applyLanguage();
+      },
+
+      applyLanguage() {
+        const t = I18N[this.lang];
+        document.documentElement.lang = this.lang;
+        document.documentElement.dir = this.lang === 'ar' ? 'rtl' : 'ltr';
+        document.title = t.pageTitle;
+
+        const langChk = document.getElementById('uiv-lang-toggle');
+        if (langChk) langChk.checked = (this.lang === 'en');
+
+        // Navbar
+        document.getElementById('nav-title').textContent = t.navTitle;
+        document.getElementById('nav-subtitle').textContent = t.navSubtitle;
+        document.getElementById('nav-btn-study').textContent = t.navStudy;
+        document.getElementById('nav-btn-team').textContent = t.navTeam;
+
+        // Intro
+        document.getElementById('hero-uni-badge').textContent = t.uniBadge;
+        document.getElementById('hero-title-main').textContent = t.heroMain;
+        document.getElementById('hero-title-accent').textContent = t.heroAccent;
+        document.getElementById('hero-description').textContent = t.heroDesc;
+        document.getElementById('sup-label').textContent = t.supLabel;
+        document.getElementById('sup-name').textContent = t.supName;
+        document.getElementById('btn-view-students').textContent = t.viewStudents;
+        document.getElementById('feat-1').textContent = t.feat1;
+        document.getElementById('feat-2').textContent = t.feat2;
+        document.getElementById('feat-3').textContent = t.feat3;
+        document.getElementById('feat-4').textContent = t.feat4;
+
+        document.getElementById('start-card-title').textContent = t.startCardTitle;
+        document.getElementById('start-card-sub').textContent = t.startCardSub;
+        document.getElementById('label-player-name').textContent = t.labelPlayerName;
+        document.getElementById('player-name-input').placeholder = t.placeholderName;
+        document.getElementById('name-error-text').textContent = t.nameError;
+        document.getElementById('btn-start-quiz').textContent = t.btnStart;
+        document.getElementById('start-arrow').textContent = t.startArrow;
+        document.getElementById('btn-intro-study').textContent = t.btnIntroStudy;
+        document.getElementById('btn-intro-export').textContent = t.btnIntroExport;
+
+        // Quiz static labels
+        document.getElementById('lbl-life-5050').textContent = t.life5050;
+        document.getElementById('lbl-life-audience').textContent = t.lifeAudience;
+        document.getElementById('lbl-life-expert').textContent = t.lifeExpert;
+        document.getElementById('lbl-life-swap').textContent = t.lifeSwap;
+        document.getElementById('lbl-walkaway').textContent = t.walkaway;
+        document.getElementById('confirm-prompt-text').textContent = t.confirmPrompt;
+        document.getElementById('btn-confirm-answer').textContent = t.confirmBtn;
+        document.getElementById('lbl-sci-note').textContent = t.sciNoteLabel;
+        document.getElementById('ladder-title').textContent = t.ladderTitle;
+        document.getElementById('ladder-safe-sub').textContent = t.ladderSafeSub;
+
+        // Modals & Footer
+        document.getElementById('footer-text').textContent = t.footerText;
+        document.getElementById('team-modal-title').textContent = t.teamModalTitle;
+        document.getElementById('team-modal-sub').textContent = t.uniBadge;
+        document.getElementById('modal-sup-label').textContent = t.modalSupLabel;
+        document.getElementById('modal-sup-name').textContent = t.supName;
+        document.getElementById('modal-students-heading').textContent = t.modalStudentsHeading;
+        document.getElementById('aud-modal-title').textContent = t.audModalTitle;
+        document.getElementById('aud-close-btn').textContent = t.audCloseBtn;
+        document.getElementById('exp-modal-title').textContent = t.expModalTitle;
+        document.getElementById('exp-close-btn').textContent = t.expCloseBtn;
+        document.getElementById('study-modal-title').textContent = t.studyModalTitle;
+        document.getElementById('study-modal-sub').textContent = t.studyModalSub;
+        document.getElementById('study-search-input').placeholder = t.studySearchPlaceholder;
+
+        this.applyTheme();
+        this.renderStudentsList();
+        this.renderStudyGuide();
+
+        // Re-render live quiz or result screen seamlessly if currently open
+        if (!document.getElementById('screen-quiz').classList.contains('hidden') && this.deck.length > 0) {
+          this.updateLivePill();
+          this.renderCurrentQuestionUI(false);
+          this.renderLadder();
+        }
+        if (!document.getElementById('screen-result').classList.contains('hidden')) {
+          this.renderResultScreenUI();
+        }
+      },
+
+      /* ==================== MANDATORY NAME VALIDATION & QUIZ START ==================== */
+      clearNameError() {
+        const inp = document.getElementById('player-name-input');
+        inp.classList.remove('shake-error');
+        document.getElementById('name-error-msg').classList.add('hidden');
+      },
+
+      prepareDeckEntry(qObj) {
+        // perm[slot] = index in qObj[lang].options (0 is always the correct option in source data!)
+        const perm = this.shuffle([0, 1, 2, 3]);
+        return { qObj, perm };
+      },
+
+      startQuiz() {
+        const inputEl = document.getElementById('player-name-input');
+        const entered = inputEl.value.trim();
+
+        // Mandatory check: cannot enter quiz without writing a valid name!
+        if (entered.length < 2) {
+          SoundEngine.playValidationError();
+          inputEl.classList.remove('shake-error');
+          void inputEl.offsetWidth; // trigger reflow for shake animation
+          inputEl.classList.add('shake-error');
+          document.getElementById('name-error-msg').classList.remove('hidden');
+          inputEl.focus();
+          return;
+        }
+
+        this.playerName = entered;
+        this.safeSet('edu_million_player', entered);
+        ConfettiEngine.stop();
+
+        // Build 15-question progressive deck (5 per tier) + backup swap pool
+        const t1 = this.shuffle(QUESTION_BANK.filter(q => q.tier === 1)).map(q => this.prepareDeckEntry(q));
+        const t2 = this.shuffle(QUESTION_BANK.filter(q => q.tier === 2)).map(q => this.prepareDeckEntry(q));
+        const t3 = this.shuffle(QUESTION_BANK.filter(q => q.tier === 3)).map(q => this.prepareDeckEntry(q));
+
+        this.deck = [...t1.slice(0, 5), ...t2.slice(0, 5), ...t3.slice(0, 5)];
+        this.backups = { 1: t1.slice(5), 2: t2.slice(5), 3: t3.slice(5) };
+
+        this.currentIdx = 0;
+        this.score = 0;
+        this.safeScore = 0;
+        this.correctTotal = 0;
+        this.history = [];
+        this.lifelines = { '5050': true, audience: true, expert: true, swap: true };
+        this.certSerial = 'ASU-' + Math.floor(100000 + Math.random() * 900000);
+
+        document.getElementById('nav-live-pill').classList.remove('hidden');
+        this.updateLivePill();
+        this.updateLifelineUI();
+
+        this.showScreen('screen-quiz');
+        this.loadStep();
+      },
+
+      showScreen(id) {
+        ['screen-intro', 'screen-quiz', 'screen-result'].forEach(s => {
+          document.getElementById(s).classList.toggle('hidden', s !== id);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+
+      goHome() {
+        SoundEngine.playClick();
+        this.stopTimer();
+        SoundEngine.stopQuestionMusic();
+        ConfettiEngine.stop();
+        document.getElementById('nav-live-pill').classList.add('hidden');
+        this.showScreen('screen-intro');
+      },
+
+      updateLivePill() {
+        const t = I18N[this.lang];
+        document.getElementById('nav-player-name').textContent = this.playerName;
+        document.getElementById('nav-player-score').textContent = `${this.score.toLocaleString('en-US')} ${t.pointsUnit}`;
+      },
+
+      /* ==================== QUESTION LOADING & RENDERING ==================== */
+      loadStep() {
+        this.stopTimer();
+        this.isAnswered = false;
+        this.selectedSlot = null;
+        this.eliminatedSlots = [];
+        this.lastAudienceWeights = null;
+
+        // Animate stage card smoothly
+        const stageCard = document.getElementById('question-stage-card');
+        stageCard.classList.remove('anim-enter');
+        void stageCard.offsetWidth;
+        stageCard.classList.add('anim-enter');
+
+        this.renderCurrentQuestionUI(true);
+        this.renderLadder();
+
+        // Play exciting intro sting + start motivating suspense music + mandatory countdown!
+        SoundEngine.playQuestionIntro(this.currentIdx);
+        SoundEngine.startQuestionMusic();
+        this.startTimer();
+      },
+
+      renderCurrentQuestionUI(animateOptions = false) {
+        const t = I18N[this.lang];
+        const entry = this.deck[this.currentIdx];
+        const loc = entry.qObj[this.lang];
+        const pts = PRIZE_STEPS[this.currentIdx];
+        const correctSlot = entry.perm.indexOf(0);
+
+        document.getElementById('q-step-badge').textContent = t.stepBadge(this.currentIdx + 1, 15);
+        document.getElementById('q-cat-badge').textContent = loc.cat;
+        document.getElementById('q-points-badge').textContent = t.pointsBadge(pts);
+        document.getElementById('q-text').textContent = loc.q;
+        document.getElementById('btn-walkaway').disabled = (this.isAnswered || this.currentIdx === 0);
+
+        const grid = document.getElementById('options-grid');
+        grid.innerHTML = '';
+
+        entry.perm.forEach((origIdx, slot) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.id = `opt-slot-${slot}`;
+          btn.className = 'option-card';
+          btn.style.animationDelay = animateOptions ? `${slot * 65}ms` : '0ms';
+
+          if (this.eliminatedSlots.includes(slot)) {
+            btn.classList.add('eliminated');
+            btn.disabled = true;
+          }
+          if (!this.isAnswered && this.selectedSlot === slot) {
+            btn.classList.add('locked');
+          }
+          if (this.isAnswered) {
+            btn.disabled = true;
+            if (slot === correctSlot) btn.classList.add('correct');
+            else if (slot === this.selectedSlot) btn.classList.add('wrong');
+          }
+
+          btn.onclick = () => this.selectOption(slot);
+          btn.innerHTML = `
+            <span class="option-letter">${t.letters[slot]}</span>
+            <span class="option-text">${loc.options[origIdx]}</span>
+          `;
+          grid.appendChild(btn);
+        });
+
+        // Confirm & Feedback states
+        const confirmBanner = document.getElementById('confirm-banner');
+        confirmBanner.classList.toggle('hidden', this.isAnswered || this.selectedSlot === null);
+
+        const fbBox = document.getElementById('feedback-box');
+        if (this.isAnswered) {
+          fbBox.classList.remove('hidden');
+          document.getElementById('feedback-explanation-text').textContent = loc.exp;
+          const lastHist = this.history[this.history.length - 1];
+          this.populateFeedbackLabels(lastHist.isCorrect, lastHist.timedOut);
+        } else {
+          fbBox.classList.add('hidden');
+        }
+      },
+
+      selectOption(slot) {
+        if (this.isAnswered || this.eliminatedSlots.includes(slot)) return;
+
+        // Clicking an already locked option confirms it immediately
+        if (this.selectedSlot === slot) {
+          this.confirmFinalAnswer();
+          return;
+        }
+
+        SoundEngine.playOptionSelect();
+        this.selectedSlot = slot;
+
+        for (let i = 0; i < 4; i++) {
+          const el = document.getElementById(`opt-slot-${i}`);
+          if (el) el.classList.toggle('locked', i === slot);
+        }
+        document.getElementById('confirm-banner').classList.remove('hidden');
+      },
+
+      confirmFinalAnswer() {
+        if (this.isAnswered || this.selectedSlot === null) return;
+        document.getElementById('confirm-banner').classList.add('hidden');
+        this.resolveQuestion(this.selectedSlot, false);
+      },
+
+      resolveQuestion(chosenSlot, timedOut = false) {
+        this.stopTimer();
+        SoundEngine.stopQuestionMusic();
+        this.isAnswered = true;
+        document.getElementById('btn-walkaway').disabled = true;
+
+        const entry = this.deck[this.currentIdx];
+        const correctSlot = entry.perm.indexOf(0);
+        const isCorrect = (!timedOut && chosenSlot === correctSlot);
+
+        for (let i = 0; i < 4; i++) {
+          const btn = document.getElementById(`opt-slot-${i}`);
+          if (!btn) continue;
+          btn.disabled = true;
+          btn.classList.remove('locked');
+          if (i === correctSlot) btn.classList.add('correct');
+          else if (i === chosenSlot && !isCorrect) btn.classList.add('wrong');
+        }
+
+        if (isCorrect) {
+          const stepNum = this.currentIdx + 1;
+          const isMilestone = (stepNum === 5 || stepNum === 10 || stepNum === 15);
+          SoundEngine.playCorrect(isMilestone);
+
+          this.score = PRIZE_STEPS[this.currentIdx];
+          if (stepNum === 5) this.safeScore = 1000;
+          if (stepNum === 10) this.safeScore = 32000;
+          if (stepNum === 15) this.safeScore = 1000000;
+          this.correctTotal++;
+          this.nextOutcome = (stepNum === 15) ? 'victory' : 'next';
+        } else {
+          SoundEngine.playWrong();
+          this.score = this.safeScore;
+          this.nextOutcome = 'gameover';
+        }
+
+        this.history.push({
+          qObj: entry.qObj,
+          perm: entry.perm,
+          chosenSlot,
+          timedOut,
+          isCorrect
+        });
+
+        this.updateLivePill();
+        const loc = entry.qObj[this.lang];
+        document.getElementById('feedback-explanation-text').textContent = loc.exp;
+        this.populateFeedbackLabels(isCorrect, timedOut);
+        document.getElementById('feedback-box').classList.remove('hidden');
+      },
+
+      populateFeedbackLabels(isCorrect, timedOut) {
+        const t = I18N[this.lang];
+        const fbBox = document.getElementById('feedback-box');
+        const statusTitle = document.getElementById('feedback-status-title');
+        const balTag = document.getElementById('feedback-balance-tag');
+        const nextTxt = document.getElementById('btn-next-text');
+        const stepNum = this.currentIdx + 1;
+
+        if (isCorrect) {
+          fbBox.className = 'feedback-box is-correct anim-enter';
+          statusTitle.style.color = 'var(--success-main)';
+          statusTitle.textContent = stepNum === 15
+            ? t.millionStatus
+            : (stepNum === 5 || stepNum === 10)
+              ? t.milestoneStatus(this.score)
+              : t.correctStatus;
+          nextTxt.textContent = stepNum === 15 ? t.showResultBtn : t.nextQuestionBtn;
+        } else {
+          fbBox.className = 'feedback-box is-wrong anim-enter';
+          statusTitle.style.color = 'var(--danger-main)';
+          statusTitle.textContent = timedOut ? t.timeoutStatus : t.wrongStatus;
+          nextTxt.textContent = t.showResultBtn;
+        }
+        balTag.textContent = t.balanceTag(this.score);
+      },
+
+      nextQuestion() {
+        SoundEngine.playClick();
+        if (this.nextOutcome === 'next') {
+          this.currentIdx++;
+          this.loadStep();
+        } else if (this.nextOutcome === 'victory') {
+          this.concludeQuiz('victory');
+        } else {
+          this.concludeQuiz('gameover');
+        }
+      },
+
+      walkAway() {
+        if (this.isAnswered || this.currentIdx === 0) return;
+        SoundEngine.playClick();
+        this.stopTimer();
+        SoundEngine.stopQuestionMusic();
+        this.concludeQuiz('walkaway');
+      },
+
+      /* ==================== MANDATORY COUNTDOWN TIMER ==================== */
+      startTimer() {
+        this.stopTimer();
+        this.timeLeft = QUESTION_DURATION;
+        this.updateTimerGraphic();
+
+        this.timerHandle = setInterval(() => {
+          this.timeLeft--;
+          this.updateTimerGraphic();
+
+          if (this.timeLeft <= 0) {
+            this.stopTimer();
+            document.getElementById('confirm-banner').classList.add('hidden');
+            this.resolveQuestion(-1, true);
+          }
+        }, 1000);
+      },
+
+      stopTimer() {
+        if (this.timerHandle) {
+          clearInterval(this.timerHandle);
+          this.timerHandle = null;
+        }
+      },
+
+      updateTimerGraphic() {
+        const numEl = document.getElementById('timer-seconds');
+        const arcEl = document.getElementById('timer-arc');
+        if (!numEl || !arcEl) return;
+
+        numEl.textContent = this.timeLeft;
+        const circumference = 144.5;
+        const ratio = Math.max(0, this.timeLeft / QUESTION_DURATION);
+        arcEl.style.strokeDashoffset = circumference * (1 - ratio);
+
+        if (this.timeLeft <= 10) {
+          arcEl.style.stroke = 'var(--danger-main)';
+          numEl.classList.add('timer-urgent');
+        } else if (this.timeLeft <= 20) {
+          arcEl.style.stroke = 'var(--gold-bright)';
+          numEl.classList.remove('timer-urgent');
+        } else {
+          arcEl.style.stroke = 'var(--brand-primary)';
+          numEl.classList.remove('timer-urgent');
+        }
+      },
+
+      /* ==================== 4 SMART LIFELINES ==================== */
+      useLifeline(key) {
+        if (this.isAnswered || !this.lifelines[key]) return;
+        this.lifelines[key] = false;
+        this.updateLifelineUI();
+        SoundEngine.playLifeline();
+
+        const entry = this.deck[this.currentIdx];
+        const correctSlot = entry.perm.indexOf(0);
+
+        if (key === '5050') {
+          const wrongs = [0, 1, 2, 3].filter(s => s !== correctSlot);
+          this.eliminatedSlots = this.shuffle(wrongs).slice(0, 2);
+          if (this.selectedSlot !== null && this.eliminatedSlots.includes(this.selectedSlot)) {
+            this.selectedSlot = null;
+            document.getElementById('confirm-banner').classList.add('hidden');
+          }
+          this.eliminatedSlots.forEach(s => {
+            const btn = document.getElementById(`opt-slot-${s}`);
+            if (btn) {
+              btn.classList.remove('locked');
+              btn.classList.add('eliminated');
+              btn.disabled = true;
+            }
+          });
+        }
+
+        else if (key === 'audience') {
+          const active = [0, 1, 2, 3].filter(s => !this.eliminatedSlots.includes(s));
+          const weights = [0, 0, 0, 0];
+          const base = entry.qObj.tier === 1 ? 68 : entry.qObj.tier === 2 ? 55 : 46;
+          weights[correctSlot] = base + Math.floor(Math.random() * 9);
+          let rem = 100 - weights[correctSlot];
+
+          const others = active.filter(s => s !== correctSlot);
+          others.forEach((s, idx) => {
+            if (idx === others.length - 1) weights[s] = Math.max(0, rem);
+            else {
+              const part = Math.floor(Math.random() * (rem + 1));
+              weights[s] = part;
+              rem -= part;
+            }
+          });
+          this.lastAudienceWeights = weights;
+          this.renderAudienceModal();
+          this.toggleModal('audience-modal', true);
+        }
+
+        else if (key === 'expert') {
+          const t = I18N[this.lang];
+          const loc = entry.qObj[this.lang];
+          document.getElementById('expert-advice-text').innerHTML = t.expGreeting(this.playerName, loc.cat, loc.hint);
+          this.toggleModal('expert-modal', true);
+        }
+
+        else if (key === 'swap') {
+          const tier = entry.qObj.tier;
+          if (this.backups[tier] && this.backups[tier].length > 0) {
+            this.deck[this.currentIdx] = this.backups[tier].shift();
+            this.loadStep();
+          }
+        }
+      },
+
+      renderAudienceModal() {
+        if (!this.lastAudienceWeights) return;
+        const t = I18N[this.lang];
+        const box = document.getElementById('audience-bars-box');
+        box.innerHTML = '';
+        this.lastAudienceWeights.forEach((pct, slot) => {
+          const row = document.createElement('div');
+          row.innerHTML = `
+            <div style="display:flex; justify-content:space-between; font-size:0.86rem; font-weight:700; margin-bottom:5px;">
+              <span>${t.audOptionLabel(t.letters[slot])}</span>
+              <span>${pct}%</span>
+            </div>
+            <div style="height:12px; border-radius:999px; background:var(--bg-surface-soft); overflow:hidden; border:1px solid var(--border-subtle);">
+              <div style="height:100%; width:${pct}%; background:linear-gradient(90deg, var(--brand-primary), var(--brand-indigo)); border-radius:999px; transition:width 0.6s ease;"></div>
+            </div>
+          `;
+          box.appendChild(row);
+        });
+      },
+
+      updateLifelineUI() {
+        ['5050', 'audience', 'expert', 'swap'].forEach(k => {
+          const btn = document.getElementById(`life-${k}`);
+          if (btn) btn.disabled = !this.lifelines[k];
+        });
+      },
+
+      /* ==================== PRIZE LADDER ==================== */
+      toggleMobileLadder() {
+        document.getElementById('ladder-list').classList.toggle('collapsed-mobile');
+      },
+
+      renderLadder() {
+        const list = document.getElementById('ladder-list');
+        list.innerHTML = '';
+        PRIZE_STEPS.forEach((pts, idx) => {
+          const step = idx + 1;
+          const isSafe = (step === 5 || step === 10 || step === 15);
+          let cls = 'ladder-row';
+          if (isSafe) cls += ' safe-station';
+          if (idx < this.currentIdx) cls += ' passed';
+          if (idx === this.currentIdx) cls += ' current';
+
+          const badge = step === 15 ? '👑' : (step === 5 || step === 10) ? '🛡️' : idx < this.currentIdx ? '✓' : '•';
+          const row = document.createElement('div');
+          row.className = cls;
+          row.innerHTML = `
+            <span>${step} ${badge}</span>
+            <span>${pts.toLocaleString('en-US')}</span>
+          `;
+          list.appendChild(row);
+        });
+      },
+
+      /* ==================== RESULTS & LUXURY HONOR CERTIFICATE ==================== */
+      getAcademicGrade() {
+        const t = I18N[this.lang].grades;
+        if (this.lastResultState === 'victory' || this.score >= 1000000) return t.million;
+        if (this.correctTotal >= 12) return t.high;
+        if (this.correctTotal >= 9) return t.good;
+        if (this.correctTotal >= 5) return t.pass;
+        return t.starter;
+      },
+
+      concludeQuiz(state) {
+        this.lastResultState = state;
+        this.stopTimer();
+        SoundEngine.stopQuestionMusic();
+
+        if (state === 'victory') {
+          SoundEngine.playGrandVictory();
+          ConfettiEngine.start();
+        } else if (state === 'walkaway') {
+          SoundEngine.playCorrect(true);
+        }
+
+        this.showScreen('screen-result');
+        this.renderResultScreenUI();
+      },
+
+      renderResultScreenUI() {
+        const t = I18N[this.lang];
+        const pct = Math.round((this.correctTotal / 15) * 100);
+        const grade = this.getAcademicGrade();
+
+        document.getElementById('res-emoji').textContent =
+          this.lastResultState === 'victory' ? '👑' : this.lastResultState === 'walkaway' ? '💼' : '🎓';
+
+        document.getElementById('res-title').textContent =
+          this.lastResultState === 'victory' ? t.winTitle(this.playerName)
+          : this.lastResultState === 'walkaway' ? t.walkTitle(this.playerName)
+          : t.overTitle(this.playerName);
+
+        document.getElementById('res-subtitle').textContent =
+          this.lastResultState === 'victory' ? t.winSub
+          : this.lastResultState === 'walkaway' ? t.walkSub(this.score)
+          : t.overSub(this.score);
+
+        document.getElementById('lbl-kpi-score').textContent = t.kpiScore;
+        document.getElementById('lbl-kpi-correct').textContent = t.kpiCorrect;
+        document.getElementById('lbl-kpi-pct').textContent = t.kpiPct;
+        document.getElementById('lbl-kpi-grade').textContent = t.kpiGrade;
+
+        document.getElementById('val-kpi-score').textContent = this.score.toLocaleString('en-US');
+        document.getElementById('val-kpi-correct').textContent = `${this.correctTotal} / 15`;
+        document.getElementById('val-kpi-pct').textContent = `${pct}%`;
+        document.getElementById('val-kpi-grade').textContent = grade;
+
+        document.getElementById('btn-dl-cert').textContent = t.dlCertBtn;
+        document.getElementById('btn-print-cert').textContent = t.printCertBtn;
+        document.getElementById('btn-play-again').textContent = t.playAgainBtn;
+        document.getElementById('btn-back-home').textContent = t.backHomeBtn;
+
+        // Populate Luxury Certificate DOM
+        document.getElementById('cert-inst-line').textContent = t.certInst;
+        document.getElementById('cert-heading').textContent = t.certHeading;
+        document.getElementById('cert-ribbon').textContent = t.certRibbon;
+        document.getElementById('cert-intro-line').textContent = t.certIntro;
+        document.getElementById('cert-recipient').textContent = this.playerName;
+        document.getElementById('cert-body-text').textContent = t.certBody(this.score, this.correctTotal);
+
+        document.getElementById('cert-pill-score').textContent = t.certScorePill(this.score);
+        document.getElementById('cert-pill-accuracy').textContent = t.certAccPill(pct);
+        document.getElementById('cert-pill-rank').textContent = t.certRankPill(grade);
+
+        document.getElementById('cert-sup-title').textContent = t.certSupTitle;
+        document.getElementById('cert-sup-name').textContent = t.certSupName;
+        document.getElementById('cert-sup-dept').textContent = t.certSupDept;
+        document.getElementById('cert-date-title').textContent = t.certDateTitle;
+        document.getElementById('cert-date-val').textContent = new Date().toLocaleDateString(
+          this.lang === 'ar' ? 'ar-EG' : 'en-US',
+          { year: 'numeric', month: 'long', day: 'numeric' }
+        );
+        document.getElementById('cert-serial-val').textContent = `ID: ${this.certSerial}`;
+
+        // Session Review Cards
+        document.getElementById('review-section-title').textContent = t.reviewTitle;
+        const revBox = document.getElementById('session-review-container');
+        revBox.innerHTML = '';
+        this.history.forEach((h, i) => {
+          const loc = h.qObj[this.lang];
+          const chosenText = h.timedOut ? t.timedOutChoice : loc.options[h.perm[h.chosenSlot]];
+          const correctText = loc.options[0];
+
+          const div = document.createElement('div');
+          div.style.cssText = `padding:16px; border-radius:14px; background:var(--bg-surface-elevated); border:1px solid ${h.isCorrect ? 'var(--success-main)' : 'var(--danger-main)'};`;
+          div.innerHTML = `
+            <div style="font-weight:800; font-size:0.98rem; margin-bottom:6px;">${i + 1}. ${loc.q}</div>
+            <div style="font-size:0.86rem; color:var(--success-main); font-weight:700;">✓ ${t.correctChoice} ${correctText}</div>
+            ${!h.isCorrect ? `<div style="font-size:0.86rem; color:var(--danger-main); font-weight:700; margin-top:3px;">✕ ${t.yourChoice} ${chosenText}</div>` : ''}
+            <div style="font-size:0.86rem; color:var(--text-secondary); margin-top:8px; padding-top:8px; border-top:1px solid var(--border-subtle);">💡 ${loc.exp}</div>
+          `;
+          revBox.appendChild(div);
+        });
+      },
+
+      /* High-Resolution Museum-Grade Luxury Certificate Canvas Generator (2400 x 1700) */
+      downloadLuxuryCertificatePNG() {
+        SoundEngine.playClick();
+        const t = I18N[this.lang];
+        const isAr = this.lang === 'ar';
+        const pct = Math.round((this.correctTotal / 15) * 100);
+        const grade = this.getAcademicGrade().replace(/[\u{1F300}-\u{1FAFF}]/gu, '').trim();
+
+        const W = 2400, H = 1700;
+        const canvas = document.createElement('canvas');
+        canvas.width = W;
+        canvas.height = H;
+        const ctx = canvas.getContext('2d');
+
+        // 1. Luxury Warm Ivory Parchment Gradient
+        const bg = ctx.createLinearGradient(0, 0, W, H);
+        bg.addColorStop(0, '#fffef9');
+        bg.addColorStop(0.5, '#fcf7e8');
+        bg.addColorStop(1, '#f5ecd4');
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, W, H);
+
+        // Subtle Imperial Forest Header Accent Band
+        ctx.fillStyle = '#064e3b';
+        ctx.fillRect(70, 70, W - 140, 18);
+
+        // 2. Ornamental Double Gold Borders
+        ctx.strokeStyle = '#9a6f18';
+        ctx.lineWidth = 8;
+        ctx.strokeRect(70, 70, W - 140, H - 140);
+
+        ctx.strokeStyle = '#d4af37';
+        ctx.lineWidth = 3;
+        ctx.strokeRect(98, 98, W - 196, H - 196);
+
+        ctx.strokeStyle = 'rgba(154, 111, 24, 0.35)';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(114, 114, W - 228, H - 228);
+
+        // Corner Flourish Squares
+        const corners = [[98, 98], [W - 148, 98], [98, H - 148], [W - 148, H - 148]];
+        ctx.strokeStyle = '#9a6f18';
+        ctx.lineWidth = 4;
+        corners.forEach(([cx, cy]) => ctx.strokeRect(cx, cy, 50, 50));
+
+        ctx.textAlign = 'center';
+        ctx.direction = isAr ? 'rtl' : 'ltr';
+
+        // 3. Institution Header
+        ctx.fillStyle = '#115e59';
+        ctx.font = `800 34px ${isAr ? 'Cairo' : 'Plus Jakarta Sans'}, sans-serif`;
+        ctx.fillText(t.certInst, W / 2, 225);
+
+        // 4. Prestigious Main Heading
+        ctx.fillStyle = '#8c6210';
+        ctx.font = `700 84px ${isAr ? 'Amiri, Cairo' : 'Cinzel, Georgia'}, serif`;
+        ctx.fillText(t.certHeading, W / 2, 360);
+
+        // Helper for cross-browser rounded rectangles on Canvas
+        const fillRoundRect = (x, y, w, h, r) => {
+          ctx.beginPath();
+          ctx.moveTo(x + r, y);
+          ctx.arcTo(x + w, y, x + w, y + h, r);
+          ctx.arcTo(x + w, y + h, x, y + h, r);
+          ctx.arcTo(x, y + h, x, y, r);
+          ctx.arcTo(x, y, x + w, y, r);
+          ctx.closePath();
+        };
+
+        // Ribbon Pill
+        ctx.fillStyle = '#115e59';
+        fillRoundRect(W / 2 - 470, 405, 940, 62, 31);
+        ctx.fill();
+        ctx.fillStyle = '#fef3c7';
+        ctx.font = `700 28px ${isAr ? 'Cairo' : 'Plus Jakarta Sans'}, sans-serif`;
+        ctx.fillText(t.certRibbon, W / 2, 446);
+
+        // 5. Recipient Section
+        ctx.fillStyle = '#475569';
+        ctx.font = `600 34px ${isAr ? 'Cairo' : 'Plus Jakarta Sans'}, sans-serif`;
+        ctx.fillText(t.certIntro, W / 2, 560);
+
+        ctx.fillStyle = '#0f172a';
+        ctx.font = `700 92px ${isAr ? 'Amiri, Cairo' : 'Playfair Display, Georgia'}, serif`;
+        ctx.fillText(this.playerName, W / 2, 690);
+
+        // Golden Divider under Name
+        const ruleGrad = ctx.createLinearGradient(W / 2 - 480, 0, W / 2 + 480, 0);
+        ruleGrad.addColorStop(0, 'transparent');
+        ruleGrad.addColorStop(0.5, '#b48327');
+        ruleGrad.addColorStop(1, 'transparent');
+        ctx.strokeStyle = ruleGrad;
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(W / 2 - 480, 735);
+        ctx.lineTo(W / 2 + 480, 735);
+        ctx.stroke();
+
+        // 6. Citation Paragraph
+        ctx.fillStyle = '#334155';
+        ctx.font = `500 34px ${isAr ? 'Cairo' : 'Plus Jakarta Sans'}, sans-serif`;
+        const bodyTxt = t.certBody(this.score, this.correctTotal);
+        this.wrapCanvasText(ctx, bodyTxt, W / 2, 825, 1650, 56);
+
+        // 7. Three Merit Badges
+        const pills = [
+          t.certScorePill(this.score),
+          t.certAccPill(pct),
+          t.certRankPill(grade)
+        ];
+        const pillW = 490, gap = 45;
+        const startX = (W - (pillW * 3 + gap * 2)) / 2;
+        pills.forEach((txt, idx) => {
+          const px = startX + idx * (pillW + gap);
+          ctx.fillStyle = 'rgba(15, 118, 110, 0.07)';
+          ctx.strokeStyle = '#b48327';
+          ctx.lineWidth = 2.5;
+          fillRoundRect(px, 995, pillW, 74, 14);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#115e59';
+          ctx.font = `700 28px ${isAr ? 'Cairo' : 'Plus Jakarta Sans'}, sans-serif`;
+          ctx.fillText(txt, px + pillW / 2, 1042);
+        });
+
+        // 8. Golden Embossed Seal in Center Bottom
+        const sealX = W / 2, sealY = 1330;
+        // Ribbons
+        ctx.fillStyle = '#115e59';
+        ctx.beginPath();
+        ctx.moveTo(sealX - 45, sealY + 75);
+        ctx.lineTo(sealX - 85, sealY + 195);
+        ctx.lineTo(sealX - 40, sealY + 168);
+        ctx.lineTo(sealX - 15, sealY + 198);
+        ctx.lineTo(sealX - 10, sealY + 85);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(sealX + 45, sealY + 75);
+        ctx.lineTo(sealX + 85, sealY + 195);
+        ctx.lineTo(sealX + 40, sealY + 168);
+        ctx.lineTo(sealX + 15, sealY + 198);
+        ctx.lineTo(sealX + 10, sealY + 85);
+        ctx.fill();
+
+        // Sunburst Gold Seal
+        const sealGrad = ctx.createRadialGradient(sealX - 25, sealY - 25, 10, sealX, sealY, 115);
+        sealGrad.addColorStop(0, '#fde68a');
+        sealGrad.addColorStop(0.55, '#d4af37');
+        sealGrad.addColorStop(1, '#8c6210');
+        ctx.fillStyle = sealGrad;
+        ctx.beginPath();
+        const spikes = 36;
+        for (let i = 0; i < spikes * 2; i++) {
+          const rad = i % 2 === 0 ? 112 : 100;
+          const ang = (i * Math.PI) / spikes;
+          const x = sealX + Math.cos(ang) * rad;
+          const y = sealY + Math.sin(ang) * rad;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.strokeStyle = '#fffbeb';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(sealX, sealY, 82, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.fillStyle = '#1e293b';
+        ctx.font = '800 32px serif';
+        ctx.fillText('★ ★ ★', sealX, sealY - 8);
+        ctx.font = '800 22px Plus Jakarta Sans, sans-serif';
+        ctx.fillText('HONOR SEAL', sealX, sealY + 30);
+
+        // 9. Left & Right Official Signatures
+        const rightColX = isAr ? W - 470 : 470;
+        const leftColX = isAr ? 470 : W - 470;
+
+        ctx.fillStyle = '#64748b';
+        ctx.font = `600 26px ${isAr ? 'Cairo' : 'Plus Jakarta Sans'}, sans-serif`;
+        ctx.fillText(t.certSupTitle, rightColX, 1300);
+        ctx.fillText(t.certDateTitle, leftColX, 1300);
+
+        ctx.fillStyle = '#0f172a';
+        ctx.font = `800 40px ${isAr ? 'Cairo' : 'Plus Jakarta Sans'}, sans-serif`;
+        ctx.fillText(t.certSupName, rightColX, 1365);
+
+        const dateStr = new Date().toLocaleDateString(isAr ? 'ar-EG' : 'en-US', {
+          year: 'numeric', month: 'long', day: 'numeric'
+        });
+        ctx.fillText(dateStr, leftColX, 1365);
+
+        ctx.fillStyle = '#926510';
+        ctx.font = `700 24px ${isAr ? 'Cairo' : 'Plus Jakarta Sans'}, sans-serif`;
+        ctx.fillText(t.certSupDept, rightColX, 1415);
+        ctx.fillText(`Certificate ID: ${this.certSerial}`, leftColX, 1415);
+
+        const a = document.createElement('a');
+        a.download = `Certificate-${this.playerName.replace(/\s+/g, '-')}.png`;
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+      },
+
+      wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
+        const words = text.split(' ');
+        let line = '';
+        let curY = y;
+        for (let n = 0; n < words.length; n++) {
+          const testLine = line + words[n] + ' ';
+          if (ctx.measureText(testLine).width > maxWidth && n > 0) {
+            ctx.fillText(line.trim(), x, curY);
+            line = words[n] + ' ';
+            curY += lineHeight;
+          } else {
+            line = testLine;
+          }
+        }
+        ctx.fillText(line.trim(), x, curY);
+      },
+
+      /* ==================== MODALS, TEAM, STUDY & OFFLINE EXPORT ==================== */
+      toggleModal(id, show) {
+        SoundEngine.playClick();
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('hidden', !show);
+      },
+
+      openStudyModal() {
+        this.renderStudyGuide();
+        this.toggleModal('study-modal', true);
+      },
+
+      renderStudentsList() {
+        const grid = document.getElementById('students-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        STUDENTS_LIST.forEach((s, idx) => {
+          const item = document.createElement('div');
+          item.className = 'student-item';
+          item.innerHTML = `
+            <span class="student-num">${idx + 1}</span>
+            <span>${s[this.lang]}</span>
+          `;
+          grid.appendChild(item);
+        });
+      },
+
+      renderStudyGuide() {
+        const box = document.getElementById('study-cards-list');
+        if (!box) return;
+        const qStr = (document.getElementById('study-search-input')?.value || '').trim().toLowerCase();
+
+        box.innerHTML = '';
+        QUESTION_BANK.forEach((qItem, idx) => {
+          const loc = qItem[this.lang];
+          const match = !qStr ||
+            loc.q.toLowerCase().includes(qStr) ||
+            loc.options[0].toLowerCase().includes(qStr) ||
+            loc.exp.toLowerCase().includes(qStr) ||
+            loc.cat.toLowerCase().includes(qStr);
+          if (!match) return;
+
+          const card = document.createElement('div');
+          card.style.cssText = 'padding:16px; border-radius:14px; background:var(--bg-surface-elevated); border:1px solid var(--border-subtle);';
+          card.innerHTML = `
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:var(--brand-primary); font-weight:800; margin-bottom:6px;">
+              <span>${loc.cat}</span>
+              <span>#${idx + 1}</span>
+            </div>
+            <div style="font-weight:800; font-size:0.98rem; margin-bottom:8px;">${loc.q}</div>
+            <div style="font-size:0.88rem; color:var(--success-main); font-weight:700; margin-bottom:6px;">✓ ${loc.options[0]}</div>
+            <div style="font-size:0.86rem; color:var(--text-secondary); line-height:1.65;">💡 ${loc.exp}</div>
+          `;
+          box.appendChild(card);
+        });
+      },
+
+      exportHTMLFile() {
+        SoundEngine.playClick();
+        const clone = document.documentElement.cloneNode(true);
+        clone.querySelector('#screen-intro')?.classList.remove('hidden');
+        clone.querySelector('#screen-quiz')?.classList.add('hidden');
+        clone.querySelector('#screen-result')?.classList.add('hidden');
+        clone.querySelector('#nav-live-pill')?.classList.add('hidden');
+        ['team-modal', 'audience-modal', 'expert-modal', 'study-modal'].forEach(id => {
+          clone.querySelector('#' + id)?.classList.add('hidden');
+        });
+
+        const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+        const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = this.lang === 'ar'
+          ? 'من-سيربح-المليون-تغذية-المراهقين.html'
+          : 'Educational-Millionaire-Adolescent-Nutrition.html';
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    };
+
+    /* =========================================================================
+       5. CELEBRATION CONFETTI ENGINE
+       ========================================================================= */
+    const ConfettiEngine = {
+      running: false,
+      raf: null,
+
+      start() {
+        const canvas = document.getElementById('confetti-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        this.running = true;
+
+        const palette = ['#0f766e', '#f59e0b', '#10b981', '#d97706', '#14b8a6'];
+        const particles = Array.from({ length: 100 }, () => ({
+          x: Math.random() * canvas.width,
+          y: Math.random() * -canvas.height,
+          w: Math.random() * 9 + 5,
+          h: Math.random() * 5 + 4,
+          vy: Math.random() * 3.2 + 2,
+          vx: (Math.random() - 0.5) * 1.8,
+          rot: Math.random() * 360,
+          col: palette[Math.floor(Math.random() * palette.length)]
+        }));
+
+        const frame = () => {
+          if (!this.running) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            return;
+          }
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach(p => {
+            p.y += p.vy;
+            p.x += p.vx;
+            p.rot += 3.5;
+            if (p.y > canvas.height) p.y = -12;
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate((p.rot * Math.PI) / 180);
+            ctx.fillStyle = p.col;
+            ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+            ctx.restore();
+          });
+          this.raf = requestAnimationFrame(frame);
+        };
+        frame();
+      },
+
+      stop() {
+        this.running = false;
+        if (this.raf) cancelAnimationFrame(this.raf);
+        const canvas = document.getElementById('confetti-canvas');
+        if (canvas) canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+      }
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      App.init();
+
+      window.addEventListener('keydown', (e) => {
+        if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+          if (e.key === 'Enter' && e.target.id === 'player-name-input') {
+            App.startQuiz();
+          }
+          return;
+        }
+        if (e.key === 'Escape') {
+          ['team-modal', 'audience-modal', 'expert-modal', 'study-modal'].forEach(id => {
+            document.getElementById(id)?.classList.add('hidden');
+          });
+          return;
+        }
+        const inQuiz = !document.getElementById('screen-quiz')?.classList.contains('hidden');
+        if (!inQuiz) return;
+
+        if (['1', '2', '3', '4'].includes(e.key) && !App.isAnswered) {
+          App.selectOption(parseInt(e.key, 10) - 1);
+        } else if (e.key === 'Enter') {
+          if (!App.isAnswered && App.selectedSlot !== null) App.confirmFinalAnswer();
+          else if (App.isAnswered) App.nextQuestion();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

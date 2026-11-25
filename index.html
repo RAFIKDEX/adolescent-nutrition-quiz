@@ -2751,6 +2751,7 @@
         this.stageIdx++;
         const icons = { breakfast: '🌅', market: '🛒', football: '⚽', lunch: '🍽️', snacks: '🌇', dinner: '🌙' };
         if (this.stageIdx < STAGES.length) {
+          this.syncToSheet('progress');
           const next = STAGES[this.stageIdx];
           document.body.setAttribute('data-time', next.timeKey);
           this.showTimeCard(icons[next.id] || '⏰', next.clock, next.label, () => this.renderCurrentStage());
@@ -2906,23 +2907,43 @@
       },
 
       /* ==================== GOOGLE SHEETS AUTO-SYNC ==================== */
+      getStageChoiceText(stageId) {
+        const items = this.chosenLog.filter(x => x.stageId === stageId);
+        return items.length ? items.map(x => x.name).join(' + ') : '-';
+      },
+
       syncToSheet(eventType) {
         if (!SHEET_WEBHOOK_URL) return;
         try {
           const s = this.stats;
           const avg = Math.round((s.sleep + s.focus + s.energy + s.health + s.vitality) / 5);
           const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+          const bf = this.getStageChoiceText('breakfast');
+          const mk = this.getStageChoiceText('market');
+          const ln = this.getStageChoiceText('lunch');
+          const sn = this.getStageChoiceText('snacks');
+          const dn = this.getStageChoiceText('dinner');
+
           const payload = {
-            event: eventType === 'start' ? 'start' : (avg >= 80 ? 'victory' : 'gameover'),
+            event: eventType === 'start' ? 'start' : (eventType === 'progress' ? 'progress' : (avg >= 80 ? 'victory' : 'gameover')),
             sessionId: this.sessionId,
             startedAt: this.startedAt,
             playerName: this.playerName,
-            statusText: eventType === 'start' ? 'بدأ يومه 🌅' : `أنهى اليوم (${this.finalTitle || ''}) 🌙`,
+            statusText: eventType === 'start'
+              ? 'بدأ يومه 🌅'
+              : eventType === 'progress'
+                ? `في المرحلة ${Math.min(this.stageIdx + 1, 7)} / 7 ⏳`
+                : `أنهى اليوم (${this.finalTitle || ''}) 🌙`,
             scoreFormatted: eventType === 'start' ? '-' : `${avg}% (أهداف: ${this.goalsScored})`,
-            correctFormatted: eventType === 'start' ? '-' : `ن:${s.sleep} ت:${s.focus} ط:${s.energy} ص:${s.health} ح:${s.vitality}`,
+            breakfastChoice: bf,
+            marketChoice: mk,
+            lunchChoice: ln,
+            snacksChoice: sn,
+            dinnerChoice: dn,
+            correctFormatted: `فطار: ${bf} | ماركت: ${mk} | غدا: ${ln} | سناك: ${sn} | عشا: ${dn}`,
             accuracyFormatted: eventType === 'start' ? '0%' : `${avg}%`,
-            grade: eventType === 'start' ? '-' : (this.finalTitle || '-'),
-            progress: eventType === 'start' ? '1 / 7' : '7 / 7',
+            grade: eventType === 'gameover' ? (this.finalTitle || '-') : '-',
+            progress: eventType === 'gameover' ? '7 / 7' : `${Math.min(this.stageIdx + 1, 7)} / 7`,
             lang: 'ar',
             device: isMobile ? 'موبايل 📱' : 'كمبيوتر 💻'
           };

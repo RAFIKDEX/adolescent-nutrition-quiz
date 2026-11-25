@@ -3124,11 +3124,13 @@
        4. MAIN APPLICATION STATE & BILINGUAL / THEME CONTROLLER
        ========================================================================= */
     const QUESTION_DURATION = 45; // Mandatory 45s timer per question
+    const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyFxvivhdU52ok-4FOJk3L2Ilt4d1MPDPHYHrtZttPUwIw163p-jcWffghqk9QZ5Ape0A/exec'; // Google Apps Script Web App URL
 
     const App = {
       lang: 'ar',
       theme: 'light',
       playerName: '',
+      startedAtStr: '',
 
       deck: [],            // 15 questions (id + perm array of option indices [0..3])
       backups: { 1: [], 2: [], 3: [] },
@@ -3337,13 +3339,59 @@
         this.history = [];
         this.lifelines = { '5050': true, audience: true, expert: true, swap: true };
         this.certSerial = 'ASU-' + Math.floor(100000 + Math.random() * 900000);
+        this.startedAtStr = new Date().toLocaleString('sv-SE');
 
         document.getElementById('nav-live-pill').classList.remove('hidden');
         this.updateLivePill();
         this.updateLifelineUI();
+        this.syncToSheet('start');
 
         this.showScreen('screen-quiz');
         this.loadStep();
+      },
+
+      syncToSheet(eventType) {
+        if (!SHEET_WEBHOOK_URL) return;
+        try {
+          const pct = Math.round((this.correctTotal / 15) * 100);
+          const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+          const statusMap = {
+            start: 'بدأ المسابقة ⏳',
+            progress: `يجيب الآن (سؤال ${Math.min(this.currentIdx + 1, 15)}/15) ⏳`,
+            victory: 'فاز بالمليون 👑',
+            walkaway: 'انسحب بالرصيد 💼',
+            gameover: 'أتم المحاولة ✅'
+          };
+          const payload = {
+            event: eventType,
+            sessionId: this.certSerial,
+            startedAt: this.startedAtStr,
+            playerName: this.playerName,
+            statusText: statusMap[eventType] || eventType,
+            score: this.score,
+            scoreFormatted: this.score.toLocaleString('en-US'),
+            correctTotal: this.correctTotal,
+            correctFormatted: `${this.correctTotal} / 15`,
+            accuracyFormatted: `${pct}%`,
+            grade: eventType === 'start' ? '-' : I18N.ar.grades[
+              (eventType === 'victory' || this.score >= 1000000) ? 'million'
+              : this.correctTotal >= 12 ? 'high'
+              : this.correctTotal >= 9 ? 'good'
+              : this.correctTotal >= 5 ? 'pass' : 'starter'
+            ],
+            progress: `${Math.min(this.history.length, 15)} / 15`,
+            lang: this.lang,
+            device: isMobile ? 'موبايل 📱' : 'كمبيوتر 💻'
+          };
+
+          fetch(SHEET_WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            keepalive: true,
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload)
+          }).catch(() => {});
+        } catch (e) {}
       },
 
       showScreen(id) {
@@ -3520,6 +3568,9 @@
         });
 
         this.updateLivePill();
+        if (this.nextOutcome === 'next') {
+          this.syncToSheet('progress');
+        }
         const loc = entry.qObj[this.lang];
         document.getElementById('feedback-explanation-text').textContent = loc.exp;
         this.populateFeedbackLabels(isCorrect, timedOut);
@@ -3751,6 +3802,7 @@
         this.lastResultState = state;
         this.stopTimer();
         SoundEngine.stopQuestionMusic();
+        this.syncToSheet(state);
 
         if (state === 'victory') {
           SoundEngine.playGrandVictory();

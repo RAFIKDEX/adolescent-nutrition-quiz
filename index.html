@@ -1808,9 +1808,10 @@
             <path d="M54 102 C50 150, 60 186, 110 190 C160 186, 170 150, 166 102" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="3"/>
           `;
         } else if (cfg.hair === 2) {
-          // Long Flowing Wavy Hair
+          // Long Flowing Wavy S-Curve Hair cascading past shoulders
           backHair = `
-            <path d="M50 86 C36 128, 38 178, 58 200 C74 194, 88 196, 110 196 C132 196, 146 194, 162 200 C182 178, 184 128, 170 86 C160 48, 136 34, 110 34 C84 34, 60 48, 50 86 Z" fill="url(#hrm-${uid})"/>
+            <path d="M52 84 C36 106, 48 128, 34 152 C22 174, 42 198, 36 218 C52 224, 68 216, 76 206 L144 206 C152 216, 168 224, 184 218 C178 198, 198 174, 186 152 C172 128, 184 106, 168 84 C158 46, 136 32, 110 32 C84 32, 62 46, 52 84 Z" fill="url(#hrm-${uid})"/>
+            <path d="M46 130 Q34 152 48 172 Q36 192 48 208 M174 130 Q186 152 172 172 Q184 192 172 208" fill="none" stroke="${hp.rim}" stroke-width="3.5" stroke-linecap="round" opacity="0.45"/>
           `;
         } else if (cfg.hair === 3) {
           // High Flowing Ponytail
